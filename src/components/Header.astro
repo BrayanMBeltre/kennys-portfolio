@@ -1,0 +1,63 @@
+---
+import { ThemeToggle } from "@/components/ThemeToggle";
+import HeaderLink from "@/components/HeaderLink.astro";
+import { Button } from "@/components/ui/button";
+
+const specializations = [
+  "Consultant",
+  "Product",
+  "Manager",
+  "Mentor",
+  "Professor",
+  "Communication",
+  "Specialist",
+  "Product",
+  "Designer",
+  "GovTech",
+  "Specialist",
+];
+---
+
+<header>
+  <div class="h-2 bg-primary mb-6"></div>
+  <nav class="container flex items-center justify-between">
+    <div class="flex items-center gap-8">
+      <a href="/" aria-label="Kenny Beltre">
+        <svg
+          width="64"
+          height="37"
+          viewBox="0 0 64 37"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            id="Vector"
+            d="M54.4594 0.214294L44.4114 22.3108L34.3511 0.214294H24.0186V15.9904L11.8051 0.214294H0.903325L14.6636 15.3212L0 36.7857H11.273L20.1701 22.4471L24.0186 27.9124V36.7857H32.7053V13.1649L41.3426 33.3033H47.4803L56.365 12.7931L56.4145 36.7857H64V0.214294H54.4594Z"
+            class="fill-current"
+          >
+          </path>
+        </svg>
+      </a>
+
+      <p class="italic font-medium text-xl">Product Manager</p>
+    </div>
+
+    <div class="flex items-center gap-8">
+      <HeaderLink href={"/"}>Home</HeaderLink>
+      <HeaderLink href={"/"}>Projects</HeaderLink>
+      <HeaderLink href={"/"}>About</HeaderLink>
+      <HeaderLink href={"/"}>What I do</HeaderLink>
+      <button
+        class:list={[
+          "text-[16px] font-bold hover:bg-foreground hover:text-background ",
+          "border border-foreground rounded-full",
+          "px-4 py-2",
+          "transition-colors duration-200",
+        ]}
+      >
+        Let’s work together
+      </button>
+      <ThemeToggle client:load />
+    </div>
+  </nav>
+</header>

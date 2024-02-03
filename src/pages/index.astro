@@ -1,16 +1,41 @@
 ---
-
+import BaseLayout from "@/Layouts/BaseLayout.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Home" description="Home page">
+  <main class="container">
+    <div class="mt-[86px] max-w-4xl mx-auto">
+      <h2 class="text-[64px] font-semibold">Hey there 👋</h2>
+      <h1 class="text-[160px] font-semibold">
+        I’m <i class="text-primary italic font-serif">Kenny</i>
+      </h1>
+      <h3 class="text-[40px] font-bold">
+        Product Manager, Designer <br />
+        & Digital Communication Specialist
+      </h3>
+    </div>
+
+    <div class="mt-[64px] flex justify-center">
+      <img src="/mouse.svg" alt="Keep Scrolling" class="animate-bounce" />
+    </div>
+
+    <article class="mt-[70px] bg-white shadow rounded-md grid grid-cols-2">
+      <div>
+        <h2 class="text-[64px] font-semibold">About Me</h2>
+        <p class="text-[24px] mt-[32px]">
+          I’m a product manager, designer, and digital communication specialist
+          with a passion for creating digital products and experiences that
+          solve problems and make people’s lives easier.
+        </p>
+      </div>
+
+      <div class="flex justify-center items-center">
+        <img
+          src="/kenny.jpg"
+          alt="Kenny"
+          class="rounded-md w-[100%] h-[100%]"
+        />
+      </div>
+    </article>
+  </main>
+</BaseLayout>
