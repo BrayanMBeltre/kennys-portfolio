@@ -4,7 +4,7 @@ import BaseLayout from "@/Layouts/BaseLayout.astro";
 
 <BaseLayout title="Home" description="Home page">
   <main class="container">
-    <div class="mt-[86px] max-w-4xl mx-auto">
+    <div class="mt-[86px] max-w-6xl mx-auto">
       <h2 class="text-[64px] font-semibold">Hey there 👋</h2>
       <h1 class="text-[160px] font-semibold">
         I’m <i class="text-primary italic font-serif">Kenny</i>
@@ -16,26 +16,120 @@ import BaseLayout from "@/Layouts/BaseLayout.astro";
     </div>
 
     <div class="mt-[64px] flex justify-center">
-      <img src="/mouse.svg" alt="Keep Scrolling" class="animate-bounce" />
+      <svg
+        width="33"
+        height="48"
+        viewBox="0 0 33 48"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        class="animate-bounce"
+      >
+        <path
+          d="M16.5 16L16.5 24"
+          stroke="white"
+          stroke-width="2"
+          stroke-linecap="round"
+          class="stroke-current"
+        >
+        </path>
+        <rect
+          class="stroke-current"
+          x="1"
+          y="0.5"
+          width="31"
+          height="47"
+          rx="15.5"
+          stroke="white"></rect>
+      </svg>
     </div>
 
-    <article class="mt-[70px] bg-white shadow rounded-md grid grid-cols-2">
-      <div>
-        <h2 class="text-[64px] font-semibold">About Me</h2>
-        <p class="text-[24px] mt-[32px]">
-          I’m a product manager, designer, and digital communication specialist
-          with a passion for creating digital products and experiences that
-          solve problems and make people’s lives easier.
-        </p>
-      </div>
+    <div class="mt-[70px]">
+      <article
+        class="sticky top-[100px] bg-white shadow rounded-3xl grid grid-cols-2 overflow-hidden"
+      >
+        <div class="p-[40px]">
+          <div class="w-[32px] h-[32px] bg-[#217864] rounded-lg"></div>
+          <h2 class="mt-[20px] text-[36px] font-bold text-[#323235]">
+            Locator Pages
+          </h2>
 
-      <div class="flex justify-center items-center">
-        <img
-          src="/kenny.jpg"
-          alt="Kenny"
-          class="rounded-md w-[100%] h-[100%]"
-        />
-      </div>
-    </article>
+          <p class="text-[#5E5E63]">UX/UI Design • 2023</p>
+
+          <p class="my-[16px] text-[#5E5E63] max-w-sm">
+            Redesign the Locator Pages create a whole new experience to buy
+            mattresses based on location navigating a vast array options to
+            choose from.
+          </p>
+
+          <div class="mt-[32px]">
+            <a
+              href="/"
+              class="border border-[#393639] text-[#393639] px-6 py-3 rounded-full"
+              >Read full case study</a
+            >
+          </div>
+        </div>
+
+        <div class="w-full h-full bg-[#217864]"></div>
+      </article>
+
+      <article
+        class="sticky top-[100px] bg-white shadow rounded-3xl grid grid-cols-2 overflow-hidden"
+      >
+        <div class="p-[40px]">
+          <div class="w-[32px] h-[32px] bg-[#217864] rounded-lg"></div>
+          <h2 class="mt-[20px] text-[36px] font-bold text-[#323235]">
+            Locator Pages
+          </h2>
+
+          <p class="text-[#5E5E63]">UX/UI Design • 2023</p>
+
+          <p class="my-[16px] text-[#5E5E63] max-w-sm">
+            Redesign the Locator Pages create a whole new experience to buy
+            mattresses based on location navigating a vast array options to
+            choose from.
+          </p>
+
+          <div class="mt-[32px]">
+            <a
+              href="/"
+              class="border border-[#393639] text-[#393639] px-6 py-3 rounded-full"
+              >Read full case study</a
+            >
+          </div>
+        </div>
+
+        <div class="w-full h-full bg-[#217864]"></div>
+      </article>
+
+      <article
+        class="sticky top-[100px] bg-white shadow rounded-3xl grid grid-cols-2 overflow-hidden"
+      >
+        <div class="p-[40px]">
+          <div class="w-[32px] h-[32px] bg-[#217864] rounded-lg"></div>
+          <h2 class="mt-[20px] text-[36px] font-bold text-[#323235]">
+            Locator Pages
+          </h2>
+
+          <p class="text-[#5E5E63]">UX/UI Design • 2023</p>
+
+          <p class="my-[16px] text-[#5E5E63] max-w-sm">
+            Redesign the Locator Pages create a whole new experience to buy
+            mattresses based on location navigating a vast array options to
+            choose from.
+          </p>
+
+          <div class="mt-[32px]">
+            <a
+              href="/"
+              class="border border-[#393639] text-[#393639] px-6 py-3 rounded-full"
+              >Read full case study</a
+            >
+          </div>
+        </div>
+
+        <div class="w-full h-full bg-[#217864]"></div>
+      </article>
+    </div>
   </main>
 </BaseLayout>

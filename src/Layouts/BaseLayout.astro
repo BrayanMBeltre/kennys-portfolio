@@ -6,6 +6,8 @@ import BaseHead from "@/components/BaseHead.astro";
 
 import Header from "@/components/Header.astro";
 
+import { Twitter, Dribbble, Github, Linkedin, Instagram } from "lucide-react";
+
 type Props = HeaderProps;
 
 const props = Astro.props;
@@ -47,16 +49,31 @@ const props = Astro.props;
     <slot />
 
     <footer class="container mt-[126px] mb-[100px]">
-      <div class="max-w-4xl mx-auto">
+      <div class="max-w-6xl mx-auto">
         <p class="text-primary text-[44px] font-bold font-serif">
           <i> Lets work together</i>
         </p>
-        <p class="text-[35px]">kennymbeltre@gmail.com</p>
-        <div class="flex gap-8">
-          <a href="/">👍</a>
-          <a href="/">👍</a>
-          <a href="/">👍</a>
-          <a href="/">👍</a>
+
+        <a href="mailto:kennymbeltre@gmail.com" class="text-[35px]">
+          kennymbeltre@gmail.com
+        </a>
+
+        <div class="mt-[26px] flex gap-8">
+          <a href="/" aria-label="Twitter">
+            <Twitter size={16} />
+          </a>
+          <a href="/" aria-label="Dribbble">
+            <Dribbble size={16} />
+          </a>
+          <a href="/" aria-label="Github">
+            <Github size={16} />
+          </a>
+          <a href="/" aria-label="Linkedin">
+            <Linkedin size={16} />
+          </a>
+          <a href="/" aria-label="Instagram">
+            <Instagram size={16} />
+          </a>
         </div>
       </div>
     </footer>
