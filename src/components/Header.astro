@@ -2,6 +2,7 @@
 import { ThemeToggle } from "@/components/ThemeToggle";
 import HeaderLink from "@/components/HeaderLink.astro";
 import { Button } from "@/components/ui/button";
+import { SpecializationsAnimation } from "./SpecializationsAnimation.tsx";
 
 const specializations = [
   "Consultant",
@@ -39,7 +40,7 @@ const specializations = [
         </svg>
       </a>
 
-      <p class="italic font-medium text-xl">Product Manager</p>
+      <SpecializationsAnimation specializations={specializations} client:load />
     </div>
 
     <div class="flex items-center gap-8">

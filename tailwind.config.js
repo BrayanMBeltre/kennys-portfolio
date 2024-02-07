@@ -66,10 +66,18 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "logo-title": {
+          "0%": { transform: "translateY(-20px)", opacity: "0" },
+          "8.25%": { transform: "translateY(-20px)", opacity: "0" },
+          "30%": { transform: "translateY(0px)", opacity: "1" },
+          "38%": { transform: "translateY(-20px)", opacity: "0" },
+          "100%": { transform: "translateY(-20px)", opacity: "0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "logo-title": "logo-title 6.6s infinite ease-in-out",
       },
     },
   },

@@ -1,5 +1,7 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "@/Layouts/BaseLayout.astro";
+import hablemosappImage from "@/assets/images/hablemosapp.png";
 ---
 
 <BaseLayout title="Home" description="Home page">
@@ -45,36 +47,42 @@ import BaseLayout from "@/Layouts/BaseLayout.astro";
 
     <div class="mt-[70px]">
       <article
-        class="sticky top-[100px] bg-white shadow rounded-3xl grid grid-cols-2 overflow-hidden"
+        class="sticky top-[100px] bg-white shadow-2xl rounded-3xl grid grid-cols-2 overflow-hidden h-[600px]"
       >
         <div class="p-[40px]">
           <div class="w-[32px] h-[32px] bg-[#217864] rounded-lg"></div>
           <h2 class="mt-[20px] text-[36px] font-bold text-[#323235]">
-            Locator Pages
+            Hablemos sin filtro
           </h2>
 
-          <p class="text-[#5E5E63]">UX/UI Design • 2023</p>
+          <p class="text-[#5E5E63]">UX/UI Design • 2020</p>
 
           <p class="my-[16px] text-[#5E5E63] max-w-sm">
-            Redesign the Locator Pages create a whole new experience to buy
-            mattresses based on location navigating a vast array options to
-            choose from.
+            A card game app for playing "Hablemos sin Filtro" with friends,
+            allowing users to share and discuss answers in an interactive
+            environment.
           </p>
 
           <div class="mt-[32px]">
             <a
               href="/"
               class="border border-[#393639] text-[#393639] px-6 py-3 rounded-full"
-              >Read full case study</a
-            >
+              >Read full case study
+            </a>
           </div>
         </div>
 
-        <div class="w-full h-full bg-[#217864]"></div>
+        <div class="w-full h-full">
+          <Image
+            src={hablemosappImage}
+            alt="Hablemos App"
+            class="object-contain w-full h-full"
+          />
+        </div>
       </article>
 
       <article
-        class="sticky top-[100px] bg-white shadow rounded-3xl grid grid-cols-2 overflow-hidden"
+        class="sticky top-[100px] bg-white shadow-2xl rounded-3xl grid grid-cols-2 overflow-hidden h-[600px]"
       >
         <div class="p-[40px]">
           <div class="w-[32px] h-[32px] bg-[#217864] rounded-lg"></div>
@@ -99,11 +107,17 @@ import BaseLayout from "@/Layouts/BaseLayout.astro";
           </div>
         </div>
 
-        <div class="w-full h-full bg-[#217864]"></div>
+        <div class="w-full h-full">
+          <Image
+            src={hablemosappImage}
+            alt="Hablemos App"
+            class="object-contain w-full h-full"
+          />
+        </div>
       </article>
 
       <article
-        class="sticky top-[100px] bg-white shadow rounded-3xl grid grid-cols-2 overflow-hidden"
+        class="sticky top-[100px] bg-white shadow-2xl rounded-3xl grid grid-cols-2 overflow-hidden h-[600px]"
       >
         <div class="p-[40px]">
           <div class="w-[32px] h-[32px] bg-[#217864] rounded-lg"></div>
@@ -128,7 +142,13 @@ import BaseLayout from "@/Layouts/BaseLayout.astro";
           </div>
         </div>
 
-        <div class="w-full h-full bg-[#217864]"></div>
+        <div class="w-full h-full">
+          <Image
+            src={hablemosappImage}
+            alt="Hablemos App"
+            class="object-contain w-full h-full"
+          />
+        </div>
       </article>
     </div>
   </main>
