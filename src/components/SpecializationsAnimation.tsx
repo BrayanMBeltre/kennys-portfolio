@@ -34,13 +34,13 @@ export const SpecializationsAnimation = (props: Props) => {
   );
 
   return (
-    <ul ref={container} className="relative h-[28px]">
+    <ul ref={container} className="relative h-[28px] w-[300px]">
       {specializations.map((specialization, index) => {
         return (
           <li
             key={`specialization-${index}`}
             id={`specialization-${index}`}
-            className={"italic font-medium text-xl absolute opacity-0"}
+            className={"italic font-medium text-lg absolute opacity-0"}
           >
             {specialization}
           </li>
