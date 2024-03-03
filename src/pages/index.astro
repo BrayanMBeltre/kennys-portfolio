@@ -1,7 +1,8 @@
 ---
-import { Image } from "astro:assets";
 import BaseLayout from "@/Layouts/BaseLayout.astro";
 import hablemosappImage from "@/assets/images/hablemosapp.png";
+import empresasPorElClimaImage from "@/assets/images/empresasporelclima.png";
+import goodBedImage from "@/assets/images/goodbed.png";
 import ProyectCard from "@/components/ProyectCard.astro";
 ---
 
@@ -52,29 +53,28 @@ import ProyectCard from "@/components/ProyectCard.astro";
 
     <div class="mt-[70px] space-y-10">
       <ProyectCard
+        title="GoodBed Locator Pages"
+        job={"UX/UI Design"}
+        date="2023"
+        description="Redesign the Locator Pages create a whole new experience to buy mattresses based on location navigating a vast array options to choose from."
+        link="https://www.figma.com/proto/cXEKvlInrRxun2eLBmTIrk/Kenny-MBeltre-Portfolio?page-id=0%3A1&node-id=43-581&viewport=297%2C48%2C0.42&scaling=scale-down-width&starting-point-node-id=2%3A44&hide-ui=1"
+        image={goodBedImage}
+      />
+
+      <ProyectCard
+        title="Empresas por el Clima"
+        job={"product manager"}
+        date="2022"
+        description="A platform with a user-friendly interactive form to simplify climate action for businesses of all sizes and show its data in a climate dashboard."
+        image={empresasPorElClimaImage}
+      />
+
+      <ProyectCard
         title="Hablemos sin filtro"
         job={"UX/UI Design"}
         date="2020"
         description="A card game app for playing 'Hablemos sin Filtro' with friends, allowing users to share and discuss answers in an interactive environment."
-        link="/"
-        image={hablemosappImage}
-      />
-
-      <ProyectCard
-        title="Locator Pages"
-        job={"UX/UI Design"}
-        date="2023"
-        description="Redesign the Locator Pages create a whole new experience to buy mattresses based on location navigating a vast array options to choose from."
-        link="/"
-        image={hablemosappImage}
-      />
-
-      <ProyectCard
-        title="Locator Pages"
-        job={"UX/UI Design"}
-        date="2023"
-        description="Redesign the Locator Pages create a whole new experience to buy mattresses based on location navigating a vast array options to choose from."
-        link="/"
+        link="https://www.figma.com/proto/cXEKvlInrRxun2eLBmTIrk/Kenny-MBeltre-Portfolio?page-id=0%3A1&node-id=43-24&viewport=297%2C48%2C0.42&scaling=scale-down-width&starting-point-node-id=2%3A44&hide-ui=1"
         image={hablemosappImage}
       />
     </div>
