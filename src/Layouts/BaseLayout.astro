@@ -39,7 +39,7 @@ const socials = [
 ---
 
 <!-- Dark mode script -->
-<script is:inline>
+<script is:inline defer>
   const getThemePreference = () => {
     if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
       return localStorage.getItem("theme");
