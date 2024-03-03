@@ -1,6 +1,6 @@
-import { useRef } from "react";
-import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { useRef } from "react";
 
 type Props = {
   specializations: string[];
@@ -38,7 +38,10 @@ export const SpecializationsAnimation = (props: Props) => {
       {specializations.map((specialization, index) => {
         return (
           <li
-            key={`specialization-${index}`}
+            key={`specialization-${
+              // biome-ignore lint/suspicious/noArrayIndexKey: <explanation>
+              index
+            }`}
             id={`specialization-${index}`}
             className={"italic font-medium text-lg absolute opacity-0"}
           >

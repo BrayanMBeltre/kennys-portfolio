@@ -16,15 +16,15 @@ const isActive = href === pathname || href === "/" + subpath?.[0];
     className,
     { active: isActive },
     "relative group",
-    " text-[#3d3e42] dark:text-[#9E9D9F] hover:text-black dark:hover:text-white",
-    "transition-colors duration-200 ease-in-out text-clip",
+    "text-foreground",
+    "transition-colors duration-200 ease-in-out",
   ]}
   {...props}
 >
   <span
     class:list={[
-      "absolute mix-blend-multiply",
-      "h-full w-0 group-hover:w-full",
+      "absolute mix-blend-screen dark:mix-blend-saturation",
+      "h-full w-0 lg:group-hover:w-full",
       "transition-all duration-200",
       "bg-primary ",
     ]}></span>

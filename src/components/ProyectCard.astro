@@ -1,0 +1,47 @@
+---
+import { Image } from "astro:assets";
+
+export type Props = {
+  title: string;
+  job: "UX/UI Design" | "Proyect Manager";
+  date: string;
+  description: string;
+  image: ImageMetadata;
+  link: string;
+};
+
+const { title, job, date, description, image, link } = Astro.props;
+---
+
+<article
+  class="sticky lg:top-[100px] bg-white shadow dark:shadow-2xl rounded-3xl grid grid-cols-1 lg:grid-cols-2 overflow-hidden lg:h-[460px]"
+>
+  <div class="p-[40px]">
+    <div class="w-[32px] h-[32px] bg-[#217864] rounded-lg"></div>
+    <h2 class="mt-[20px] text-[36px] font-bold text-[#323235]">
+      {title}
+    </h2>
+
+    <p class="text-[#5E5E63]">{job} • {date}</p>
+
+    <p class="my-[16px] text-[#5E5E63] max-w-sm">
+      {description}
+    </p>
+
+    <!-- <div class="mt-[32px]">
+      <a
+        href={link}
+        class="border border-[#393639] text-[#393639] px-6 py-3 rounded-full"
+        >Read full case study</a
+      >
+    </div> -->
+  </div>
+
+  <div class="w-full h-full">
+    <Image
+      src={image}
+      alt={`Image of ${title}`}
+      class="object-contain w-full h-full"
+    />
+  </div>
+</article>

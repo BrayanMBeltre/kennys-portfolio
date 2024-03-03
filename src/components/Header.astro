@@ -15,10 +15,12 @@ const specializations = [
 ];
 ---
 
-<header class="sticky top-0 bg-background h-[100px] z-[1]">
+<header class="sticky top-0 bg-background pb-4 lg:pb-0 lg:h-[100px] z-[1]">
   <div class="h-2 bg-primary mb-6"></div>
-  <nav class="container flex items-center justify-between">
-    <div class="flex items-center gap-8">
+  <nav
+    class="container flex flex-col md:flex-row lg:items-center justify-between"
+  >
+    <div class="flex items-center gap-4">
       <a href="/" aria-label="Kenny Beltre">
         <svg
           width="64"
@@ -39,22 +41,34 @@ const specializations = [
       <SpecializationsAnimation specializations={specializations} client:load />
     </div>
 
-    <div class="flex items-center gap-8">
+    <div class="flex items-center gap-6 md:gap-8 mt-5 lg:mt-0">
       <HeaderLink href={"/"}>Home</HeaderLink>
       <HeaderLink href={"/"}>Projects</HeaderLink>
       <HeaderLink href={"/"}>About</HeaderLink>
       <HeaderLink href={"/"}>What I do</HeaderLink>
-      <button
+
+      <a
+        href={"mailto:kennymbeltre@gmail.com"}
         class:list={[
-          "text-[16px] font-bold hover:bg-foreground hover:text-background ",
-          "border border-foreground rounded-full",
+          "hidden lg:inline-flex",
+          "group relative ",
+          "items-center justify-center",
+          "overflow-hidden rounded-full bg-primary  ",
+          "font-bold text-foreground hover:text-black",
+          "transition-colors duration-300",
           "px-4 py-2",
-          "transition-colors duration-200",
+          "border border-foreground",
         ]}
-      >
-        Let’s work together
-      </button>
-      <ThemeToggle client:load />
+        ><span
+          class="absolute h-full w-full rounded-full bg-background transition-all duration-200 group-hover:h-0 group-hover:w-0 ease-in-out"
+        >
+        </span>
+        <span class="relative text-center"> Let’s work together</span>
+      </a>
+
+      <div class="hidden lg:block">
+        <ThemeToggle client:load />
+      </div>
     </div>
   </nav>
 </header>

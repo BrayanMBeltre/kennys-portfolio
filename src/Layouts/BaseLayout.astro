@@ -6,11 +6,36 @@ import BaseHead from "@/components/BaseHead.astro";
 
 import Header from "@/components/Header.astro";
 
-import { Twitter, Dribbble, Github, Linkedin, Instagram } from "lucide-react";
+import { Twitter, Dribbble, Linkedin, Instagram } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import HeaderLink from "@/components/HeaderLink.astro";
 
 type Props = HeaderProps;
 
 const props = Astro.props;
+
+const socials = [
+  {
+    name: "Twitter",
+    url: "https://twitter.com/kennymbeltre",
+    icon: Twitter,
+  },
+  {
+    name: "Dribbble",
+    url: "https://dribbble.com/kennymbeltre",
+    icon: Dribbble,
+  },
+  {
+    name: "Linkedin",
+    url: "https://www.linkedin.com/in/kennymbeltre",
+    icon: Linkedin,
+  },
+  {
+    name: "Instagram",
+    url: "https://www.instagram.com/kennymbeltre",
+    icon: Instagram,
+  },
+];
 ---
 
 <!-- Dark mode script -->
@@ -51,29 +76,28 @@ const props = Astro.props;
     <footer class="container mt-[126px] mb-[100px]">
       <div class="max-w-6xl mx-auto">
         <p class="text-primary text-[44px] font-bold font-serif">
-          <i> Lets work together</i>
+          <i> Let’s work together</i>
         </p>
 
-        <a href="mailto:kennymbeltre@gmail.com" class="text-[35px]">
+        <a
+          href="mailto:kennymbeltre@gmail.com"
+          class="text-[25px] lg:text-[35px]"
+        >
           kennymbeltre@gmail.com
         </a>
 
         <div class="mt-[26px] flex gap-8">
-          <a href="/" aria-label="Twitter">
-            <Twitter size={16} />
-          </a>
-          <a href="/" aria-label="Dribbble">
-            <Dribbble size={16} />
-          </a>
-          <a href="/" aria-label="Github">
-            <Github size={16} />
-          </a>
-          <a href="/" aria-label="Linkedin">
-            <Linkedin size={16} />
-          </a>
-          <a href="/" aria-label="Instagram">
-            <Instagram size={16} />
-          </a>
+          {
+            socials.map((social) => (
+              <HeaderLink
+                href={social.url}
+                aria-label={social.name}
+                target="_blank"
+              >
+                <social.icon size={16} className="text-foreground/80" />
+              </HeaderLink>
+            ))
+          }
         </div>
       </div>
     </footer>
