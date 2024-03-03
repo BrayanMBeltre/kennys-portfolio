@@ -18,11 +18,11 @@ const { title, job, date, description, image, link } = Astro.props;
 >
   <div class="p-[40px]">
     <div class="w-[32px] h-[32px] bg-[#217864] rounded-lg"></div>
-    <h2 class="mt-[20px] text-[36px] font-bold text-[#323235]">
+    <h2 class="mt-[20px] text-[36px] font-bold text-[#323235] leading-[44px]">
       {title}
     </h2>
 
-    <p class="text-[#5E5E63] uppercase">{job} • {date}</p>
+    <p class="text-[#5E5E63] uppercase mt-4">{job} • {date}</p>
 
     <p class="my-[16px] text-[#5E5E63] max-w-sm">
       {description}

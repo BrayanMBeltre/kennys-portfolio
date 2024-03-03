@@ -9,14 +9,13 @@ const specializations = [
   "Product Manager",
   "Mentor",
   "Professor",
-  "Communication Specialist",
   "Product Designer",
   "GovTech Specialist",
 ];
 ---
 
 <header class="sticky top-0 bg-background pb-4 lg:pb-0 lg:h-[100px] z-[1]">
-  <div class="h-2 bg-primary mb-6"></div>
+  <div class="h-1 bg-primary mb-6"></div>
   <nav
     class="container flex flex-col md:flex-row lg:items-center justify-between"
   >
@@ -41,7 +40,7 @@ const specializations = [
       <SpecializationsAnimation specializations={specializations} client:load />
     </div>
 
-    <div class="flex items-center gap-6 md:gap-8 mt-5 lg:mt-0">
+    <div class="flex items-center gap-4 md:gap-8 mt-5 lg:mt-0">
       <HeaderLink href={"/"}>Home</HeaderLink>
       <HeaderLink href={"/"}>Projects</HeaderLink>
       <HeaderLink href={"/"}>About</HeaderLink>

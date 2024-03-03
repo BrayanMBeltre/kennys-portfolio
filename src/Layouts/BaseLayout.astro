@@ -7,7 +7,6 @@ import BaseHead from "@/components/BaseHead.astro";
 import Header from "@/components/Header.astro";
 
 import { Twitter, Dribbble, Linkedin, Instagram } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import HeaderLink from "@/components/HeaderLink.astro";
 
 type Props = HeaderProps;
@@ -75,16 +74,18 @@ const socials = [
 
     <footer class="container mt-[126px] mb-[100px]">
       <div class="max-w-6xl mx-auto">
-        <p class="text-primary text-[44px] font-bold font-serif">
+        <p class="text-primary text-[44px] font-bold font-serif leading-[48px]">
           <i> Let’s work together</i>
         </p>
 
-        <a
-          href="mailto:kennymbeltre@gmail.com"
-          class="text-[25px] lg:text-[35px]"
-        >
-          kennymbeltre@gmail.com
-        </a>
+        <div class="mt-4">
+          <a
+            href="mailto:kennymbeltre@gmail.com"
+            class="text-[25px] lg:text-[35px]"
+          >
+            kennymbeltre@gmail.com
+          </a>
+        </div>
 
         <div class="mt-[26px] flex gap-8">
           {
