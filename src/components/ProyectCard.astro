@@ -44,6 +44,7 @@ const { title, job, date, description, image, link } = Astro.props;
 
   <div class="w-full h-full">
     <Image
+      loading={"lazy"}
       src={image}
       alt={`Image of ${title}`}
       class="object-contain w-full h-full"
