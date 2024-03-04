@@ -1,7 +1,6 @@
 ---
 import { ThemeToggle } from "@/components/ThemeToggle";
 import HeaderLink from "@/components/HeaderLink.astro";
-import { Button } from "@/components/ui/button";
 import { SpecializationsAnimation } from "./SpecializationsAnimation.tsx";
 
 const specializations = [
@@ -11,6 +10,13 @@ const specializations = [
   "Professor",
   "Product Designer",
   "GovTech Specialist",
+];
+
+const navLinks = [
+  { name: "Home", href: "/" },
+  { name: "Projects", href: "/projects" },
+  { name: "About", href: "/about" },
+  { name: "What I do", href: "/work" },
 ];
 ---
 
@@ -41,10 +47,13 @@ const specializations = [
     </div>
 
     <div class="flex items-center gap-4 md:gap-8 mt-5 lg:mt-0">
-      <HeaderLink href={"/"}>Home</HeaderLink>
-      <HeaderLink href={"/"}>Projects</HeaderLink>
-      <HeaderLink href={"/"}>About</HeaderLink>
-      <HeaderLink href={"/"}>What I do</HeaderLink>
+      {
+        navLinks.map((link) => (
+          <div class={"staggered-item"}>
+            <HeaderLink href={link.href}>{link.name}</HeaderLink>
+          </div>
+        ))
+      }
 
       <a
         href={"mailto:kennymbeltre@gmail.com"}
@@ -71,3 +80,14 @@ const specializations = [
     </div>
   </nav>
 </header>
+
+<script>
+  import gsap from "gsap";
+
+  gsap.from(".staggered-item", {
+    y: 20,
+    opacity: 0,
+    duration: 0.5,
+    stagger: 0.2,
+  });
+</script>

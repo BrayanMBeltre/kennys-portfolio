@@ -5,12 +5,15 @@ import ProyectCard from "@/components/ProyectCard.astro";
 import hablemosappImage from "@/assets/images/hablemosapp.avif";
 import empresasPorElClimaImage from "@/assets/images/empresasporelclima.avif";
 import goodBedImage from "@/assets/images/goodbed.avif";
+import { cn } from "@/lib/utils";
 ---
 
 <BaseLayout>
   <main class="container">
-    <h1 class="mt-[100px] max-w-6xl mx-auto">
-      <span class="text-[32px] lg:text-[64px] font-semibold">Hey there 👋</span>
+    <h1 class="mt-[100px] max-w-6xl mx-auto animate-title">
+      <span class={cn(["relative text-[32px] lg:text-[64px] font-semibold"])}
+        >Hey there <span class="absolute animate-emoji"> 👋</span></span
+      >
 
       <br />
 
@@ -35,7 +38,7 @@ import goodBedImage from "@/assets/images/goodbed.avif";
         viewBox="0 0 33 48"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        class="animate-bounce"
+        class="animate-mouse"
       >
         <path
           d="M16.5 16L16.5 24"
@@ -85,3 +88,54 @@ import goodBedImage from "@/assets/images/goodbed.avif";
     </div>
   </main>
 </BaseLayout>
+
+<script>
+  import gsap from "gsap";
+
+  const tl = gsap.timeline();
+
+  const handEmoji = document.querySelector(".animate-emoji");
+
+  const waveAnimation = {
+    duration: 1,
+    // wave animation
+    transformOrigin: "70% 100%",
+    keyframes: [
+      { rotate: 0 },
+      { rotate: 20 },
+      { rotate: -20 },
+      { rotate: 10 },
+      { rotate: -10 },
+      { rotate: 5 },
+      { rotate: -5 },
+      { rotate: 0 },
+    ],
+  };
+
+  // animate on hover
+  handEmoji?.addEventListener("mouseenter", () => {
+    gsap.to(handEmoji, waveAnimation);
+  });
+
+  tl.from(".animate-title span", {
+    y: 20,
+    opacity: 0,
+    duration: 0.5,
+    stagger: 0.2,
+  });
+
+  tl.from(".animate-mouse", {
+    y: 20,
+    opacity: 0,
+    duration: 0.5,
+  });
+
+  gsap.to(".animate-mouse", {
+    y: 10,
+    repeat: -1,
+    yoyo: true,
+    duration: 0.5,
+  });
+
+  tl.from(".animate-emoji", waveAnimation);
+</script>

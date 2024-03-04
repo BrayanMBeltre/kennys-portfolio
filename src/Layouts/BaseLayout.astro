@@ -39,7 +39,7 @@ const socials = [
 ---
 
 <!-- Dark mode script -->
-<script is:inline defer>
+<script is:inline>
   const getThemePreference = () => {
     if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
       return localStorage.getItem("theme");
@@ -74,10 +74,14 @@ const socials = [
     <slot />
 
     <footer class="container mt-[126px] mb-[100px]">
-      <div class="max-w-6xl mx-auto">
-        <p class="text-primary text-[44px] font-bold font-serif leading-[48px]">
-          <i> Let’s work together</i>
-        </p>
+      <div class="max-w-6xl mx-auto animate-footer">
+        <div>
+          <p
+            class="text-primary text-[44px] font-bold font-serif leading-[48px]"
+          >
+            <i> Let’s work together</i>
+          </p>
+        </div>
 
         <div class="mt-4">
           <a
@@ -91,17 +95,45 @@ const socials = [
         <div class="mt-[26px] flex gap-8">
           {
             socials.map((social) => (
-              <HeaderLink
+              <a
                 href={social.url}
                 aria-label={social.name}
                 target="_blank"
+                class="text-foreground/80 hover:text-primary transition-colors duration-200"
               >
-                <social.icon size={16} className="text-foreground/80" />
-              </HeaderLink>
+                <social.icon size={16} className="animate-socials" />
+              </a>
             ))
           }
         </div>
       </div>
     </footer>
+    <script>
+      import gsap from "gsap";
+      import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+      gsap.registerPlugin(ScrollTrigger);
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".animate-footer",
+        },
+      });
+
+      tl.from(".animate-footer div", {
+        y: 50,
+        opacity: 0,
+        duration: 0.5,
+        delay: 0.5,
+        stagger: 0.2,
+      });
+
+      tl.from(".animate-socials", {
+        y: 50,
+        opacity: 0,
+        duration: 0.5,
+        stagger: 0.2,
+      });
+    </script>
   </body>
 </html>

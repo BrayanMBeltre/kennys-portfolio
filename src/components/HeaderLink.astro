@@ -1,4 +1,5 @@
 ---
+import { cn } from "@/lib/utils";
 import type { HTMLAttributes } from "astro/types";
 
 type Props = HTMLAttributes<"a">;
@@ -8,26 +9,48 @@ const { href, class: className, ...props } = Astro.props;
 const { pathname } = Astro.url;
 const subpath = pathname.match(/[^\/]+/g);
 const isActive = href === pathname || href === "/" + subpath?.[0];
+
+console.log(isActive);
 ---
 
 <a
   href={href}
-  class:list={[
+  class={cn([
     className,
-    { active: isActive },
     "relative group",
-    "text-foreground",
-    "transition-colors duration-200 ease-in-out",
-  ]}
+    "bg-clip-text text-transparent  ",
+    "bg-gradient-to-r from-[hsl(var(--foreground))_50%] to-[hsl(var(--primary))_50%]",
+    "bg-[length:200px_100px]  hover:bg-right",
+    "transition-all duration-500",
+    isActive && "bg-right",
+  ])}
   {...props}
 >
   <span
-    class:list={[
-      "absolute mix-blend-screen dark:mix-blend-saturation",
-      "h-full w-0 lg:group-hover:w-full",
+    class={cn([
+      "absolute bottom-0",
+      "bg-primary",
+      "h-[1px]",
+      "w-0 group-hover:w-full",
       "transition-all duration-200",
-      "bg-primary ",
-    ]}></span>
-
+    ])}></span>
   <slot />
 </a>
+
+<style>
+  .animated-background-text {
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    background: linear-gradient(
+      90deg,
+      hsl(var(--foreground)) 50%,
+      hsl(var(--primary)) 50%
+    );
+    background-size: 200% 100%;
+  }
+
+  .animated-background-text:hover {
+    background-position: -100% 0;
+  }
+</style>
