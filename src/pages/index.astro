@@ -11,9 +11,12 @@ import { cn } from "@/lib/utils";
 <BaseLayout>
   <main class="container">
     <h1 class="mt-[100px] max-w-6xl mx-auto animate-title">
-      <span class={cn(["relative text-[32px] lg:text-[64px] font-semibold"])}
+      <span class={cn(["text-[32px] lg:text-[64px] font-semibold"])}
         >Hey there <span
-          class="absolute hover:animate-wave origin-[70%_70%] animate-wave repeat-1 hover:repeat-infinite delay-1000"
+          class={cn([
+            "inline-block",
+            "animate-wave origin-[70%_70%] repeat-1 hover:repeat-infinite delay-1000",
+          ])}
         >
           👋</span
         ></span
