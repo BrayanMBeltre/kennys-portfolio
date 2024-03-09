@@ -12,7 +12,11 @@ import { cn } from "@/lib/utils";
   <main class="container">
     <h1 class="mt-[100px] max-w-6xl mx-auto animate-title">
       <span class={cn(["relative text-[32px] lg:text-[64px] font-semibold"])}
-        >Hey there <span class="absolute animate-emoji"> 👋</span></span
+        >Hey there <span
+          class="absolute hover:animate-wave origin-[70%_70%] animate-wave repeat-1 hover:repeat-infinite delay-1000"
+        >
+          👋</span
+        ></span
       >
 
       <br />
@@ -94,29 +98,6 @@ import { cn } from "@/lib/utils";
 
   const tl = gsap.timeline();
 
-  const handEmoji = document.querySelector(".animate-emoji");
-
-  const waveAnimation = {
-    duration: 1,
-    // wave animation
-    transformOrigin: "70% 100%",
-    keyframes: [
-      { rotate: 0 },
-      { rotate: 20 },
-      { rotate: -20 },
-      { rotate: 10 },
-      { rotate: -10 },
-      { rotate: 5 },
-      { rotate: -5 },
-      { rotate: 0 },
-    ],
-  };
-
-  // animate on hover
-  handEmoji?.addEventListener("mouseenter", () => {
-    gsap.to(handEmoji, waveAnimation);
-  });
-
   tl.from(".animate-title span", {
     y: 20,
     opacity: 0,
@@ -136,6 +117,4 @@ import { cn } from "@/lib/utils";
     yoyo: true,
     duration: 0.5,
   });
-
-  tl.from(".animate-emoji", waveAnimation);
 </script>
