@@ -2,9 +2,9 @@
 import BaseLayout from "@/Layouts/BaseLayout.astro";
 import ProyectCard from "@/components/ProyectCard.astro";
 
-import hablemosappImage from "@/assets/images/hablemosapp.avif";
 import empresasPorElClimaImage from "@/assets/images/empresasporelclima.avif";
 import goodBedImage from "@/assets/images/goodbed.avif";
+import hablemosappImage from "@/assets/images/hablemosapp.avif";
 import { cn } from "@/lib/utils";
 ---
 
@@ -66,14 +66,15 @@ import { cn } from "@/lib/utils";
       </svg>
     </div>
 
-    <div class="mt-[70px] space-y-10">
+    <div id="projects" class="mt-[70px] space-y-10">
       <ProyectCard
         title="GoodBed Locator Pages"
         job={"UX/UI Design"}
         date="2023"
         description="Redesign the Locator Pages create a whole new experience to buy mattresses based on location navigating a vast array options to choose from."
-        link="https://www.figma.com/proto/cXEKvlInrRxun2eLBmTIrk/Kenny-MBeltre-Portfolio?page-id=0%3A1&node-id=43-581&viewport=297%2C48%2C0.42&scaling=scale-down-width&starting-point-node-id=2%3A44&hide-ui=1"
+        link="https://www.figma.com/proto/stVcX8TOBHvoyT6qFKerYt/2024-Kenny-MBeltre?page-id=1%3A25&node-id=1-6801&viewport=-13036%2C-1772%2C0.49&t=opyS1H4VbRc5RjMx-1&scaling=scale-down-width&starting-point-node-id=1%3A6801&content-scaling=fixed"
         image={goodBedImage}
+        target="_blank"
       />
 
       <ProyectCard
@@ -81,7 +82,9 @@ import { cn } from "@/lib/utils";
         job={"product manager"}
         date="2022"
         description="A platform with a user-friendly interactive form to simplify climate action for businesses of all sizes and show its data in a climate dashboard."
+        link="https://www.figma.com/proto/stVcX8TOBHvoyT6qFKerYt/2024-Kenny-MBeltre?page-id=1%3A25&node-id=13-1935&viewport=-13036%2C-1772%2C0.49&t=GLMwfTshmNXWDCQo-1&scaling=scale-down-width&starting-point-node-id=13%3A1935&content-scaling=fixed"
         image={empresasPorElClimaImage}
+        target="_blank"
       />
 
       <ProyectCard
@@ -89,8 +92,9 @@ import { cn } from "@/lib/utils";
         job={"UX/UI Design"}
         date="2020"
         description="A card game app for playing 'Hablemos sin Filtro' with friends, allowing users to share and discuss answers in an interactive environment."
-        link="https://www.figma.com/proto/cXEKvlInrRxun2eLBmTIrk/Kenny-MBeltre-Portfolio?page-id=0%3A1&node-id=43-24&viewport=297%2C48%2C0.42&scaling=scale-down-width&starting-point-node-id=2%3A44&hide-ui=1"
+        link="https://kennymbeltre.contra.com/p/PNB7YPNo-card-game-mvp-case-study?openCustomizationSidebarScreen=closed&portfolioGuide=1&styleOverride=sydney%3Adawn"
         image={hablemosappImage}
+        target="_blank"
       />
     </div>
   </main>

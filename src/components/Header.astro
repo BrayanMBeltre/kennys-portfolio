@@ -1,6 +1,6 @@
 ---
-import { ThemeToggle } from "@/components/ThemeToggle";
 import HeaderLink from "@/components/HeaderLink.astro";
+import { ThemeToggle } from "@/components/ThemeToggle";
 import { SpecializationsAnimation } from "./SpecializationsAnimation.tsx";
 
 const specializations = [
@@ -14,9 +14,13 @@ const specializations = [
 
 const navLinks = [
   { name: "Home", href: "/" },
-  { name: "Projects", href: "/projects" },
-  { name: "About", href: "/about" },
-  { name: "What I do", href: "/work" },
+  { name: "Projects", href: "#projects" },
+  { name: "About", href: "https://read.cv/kennymbeltre" },
+  {
+    name: "What I do",
+    href: "https://www.figma.com/proto/stVcX8TOBHvoyT6qFKerYt/2024-Kenny-MBeltre?page-id=1%3A25&node-id=1-4886&viewport=-13036%2C-1772%2C0.49&t=opyS1H4VbRc5RjMx-1&scaling=scale-down-width&starting-point-node-id=1%3A4662&content-scaling=fixed",
+    target: "_blank",
+  },
 ];
 ---
 
@@ -50,7 +54,9 @@ const navLinks = [
       {
         navLinks.map((link) => (
           <div class={"staggered-item"}>
-            <HeaderLink href={link.href}>{link.name}</HeaderLink>
+            <HeaderLink href={link.href} target={link.target}>
+              {link.name}
+            </HeaderLink>
           </div>
         ))
       }

@@ -1,5 +1,6 @@
 ---
 import { Image } from "astro:assets";
+import type { HTMLAttributeAnchorTarget } from "react";
 
 export type Props = {
   title: string;
@@ -8,9 +9,10 @@ export type Props = {
   description: string;
   image: ImageMetadata;
   link?: string;
+  target?: HTMLAttributeAnchorTarget;
 };
 
-const { title, job, date, description, image, link } = Astro.props;
+const { title, job, date, description, image, link, target } = Astro.props;
 ---
 
 <article
@@ -32,6 +34,7 @@ const { title, job, date, description, image, link } = Astro.props;
       link && (
         <div class="mt-[32px]">
           <a
+            target={target}
             href={link}
             class="border border-[#393639] text-[#393639] px-6 py-3 rounded-full"
           >
