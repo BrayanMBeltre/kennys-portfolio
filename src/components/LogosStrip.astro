@@ -1,0 +1,50 @@
+---
+import { Image } from "astro:assets";
+import ylai from "../assets/logos/ylai.png";
+import elDinero from "../assets/logos/el-dinero.png";
+import b4bi from "../assets/logos/b4bi.svg";
+import noticiasSin from "../assets/logos/noticias-sin.png";
+import itla from "../assets/logos/itla.png";
+import latinity from "../assets/logos/latinity.png";
+import gsc from "../assets/logos/gsc.png";
+import micm from "../assets/logos/micm.png";
+import mujeresTics from "../assets/logos/mujeres-tics.png";
+import Marquee from "./Marquee.astro";
+
+const logos = [
+  { src: ylai, alt: "YLAI" },
+  { src: elDinero, alt: "elDinero" },
+  { src: b4bi, alt: "Bridge for Billions" },
+  { src: noticiasSin, alt: "SIN" },
+  { src: itla, alt: "ITLA" },
+  { src: latinity, alt: "Latinity" },
+  { src: gsc, alt: "Global Shapers" },
+  { src: micm, alt: "MICM" },
+  { src: mujeresTics, alt: "Mujeres TICS" },
+];
+---
+
+<section
+  class="border-charcoal/6 space-y-7 border-b bg-white px-4 py-9 lg:gap-10 lg:py-12"
+>
+  <p
+    class="text-charcoal text-center font-sans text-[10px] tracking-[2px] uppercase"
+  >
+    You may have seen me Featured In &amp; Recognized By
+  </p>
+
+  <div class="w-full overflow-hidden">
+    <Marquee speed={40} pauseOnHover={true}>
+      {
+        [...logos, ...logos].map((logo) => (
+          <Image
+            src={logo.src}
+            alt={logo.alt}
+            class="h-12 w-auto"
+            loading={"eager"}
+          />
+        ))
+      }
+    </Marquee>
+  </div>
+</section>

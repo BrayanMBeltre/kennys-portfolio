@@ -1,0 +1,70 @@
+---
+import A from "./A.astro";
+
+const services = [
+  {
+    title: "Product strategy & advisory",
+    description:
+      "For teams that need sharper product thinking, better prioritization, and stronger alignment between user value and business goals.",
+  },
+  {
+    title: "Experience consulting",
+    description:
+      "For organizations improving digital journeys, simplifying complexity, or creating intuitive services.",
+  },
+  {
+    title: "Innovation and transformation",
+    description:
+      "For institutions and teams navigating change and looking for more strategic, human-centered ways to evolve.",
+  },
+];
+---
+
+<section
+  id="services"
+  class="bg-cream-2 px-5 pt-13 md:px-10 md:pt-20 lg:px-12 lg:pt-30"
+>
+  <div class="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">
+    <!-- Left Column -->
+    <div class="flex flex-col justify-start">
+      <p
+        class="font-heading text-charcoal mb-5 text-[10.4px] font-medium tracking-[2.08px] uppercase"
+      >
+        ✦ Services
+      </p>
+      <h2
+        class="text-charcoal mb-8 font-sans text-2xl leading-tight font-light md:text-3xl lg:mb-12 lg:text-[44px]"
+      >
+        Built at the intersection of<br /><em class="text-orange italic"
+          >strategy, design, and impact.</em
+        >
+      </h2>
+      <A
+        target="_blank"
+        href="https://calendly.com/kennymbeltre/letsworktogether"
+        variant={"secondary"}
+        size={"sm"}
+        class={"w-fit"}
+      >
+        Book a free discovery call
+      </A>
+    </div>
+
+    <!-- Right Column - Services -->
+    <div class="reveal-group flex flex-col gap-8 lg:gap-10">
+      {
+        services.map((service) => (
+          <div class="reveal-item">
+            <h3 class="font-heading text-charcoal mb-3 flex items-start gap-3 text-lg font-bold md:text-[21.6px]">
+              <span class="text-orange mt-0.5 shrink-0 text-xl">◆</span>
+              <span>{service.title}</span>
+            </h3>
+            <p class="font-heading text-charcoal text-base leading-normal font-light">
+              {service.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

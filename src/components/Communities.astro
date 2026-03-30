@@ -1,0 +1,60 @@
+---
+import workshopsTraningEducation from "../assets/workshops-training-education.gif";
+import mentorshipJudging from "../assets/mentorship-judging.gif";
+import speakingEngagements from "../assets/speaking-engagements.gif";
+import { Image } from "astro:assets";
+
+const communities = [
+  {
+    title: "Workshops, training & education",
+    description:
+      "Sessions on product thinking, design, innovation, and human-centered strategy for teams, students, and emerging leaders.",
+    img: workshopsTraningEducation,
+  },
+  {
+    title: "Mentorship and judging",
+    description:
+      "Support for accelerators, student programs, and innovation ecosystems looking for experienced guidance.",
+    img: mentorshipJudging,
+  },
+  {
+    title: "Speaking engagements",
+    description:
+      "Talks, panels, and conversations on product, design, innovation, leadership, and impact.",
+    img: speakingEngagements,
+  },
+];
+---
+
+<section class="bg-cream-2 px-5 py-10 md:px-10 lg:px-12">
+  <h2
+    class="mb-6 flex gap-2 font-sans text-2xl font-light md:mb-10 md:text-3xl lg:text-[44px]"
+  >
+    <span>Teams</span><em class="text-orange2 italic">and communities</em>
+  </h2>
+
+  <div
+    class="reveal-group mb-10 grid grid-cols-1 gap-8 md:grid-cols-3 md:gap-10"
+  >
+    {
+      communities.map((community) => (
+        <div class="reveal-item flex flex-col">
+          <Image
+            src={community.img}
+            alt={community.title}
+            class={
+              "mb-4 aspect-video h-44 w-full rounded-2xl object-cover md:h-56.25"
+            }
+          />
+
+          <h3 class="font-heading text-charcoal mb-3 text-lg font-bold md:text-[21.6px]">
+            {community.title}
+          </h3>
+          <p class="font-heading text-charcoal text-base leading-normal font-light">
+            {community.description}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,65 @@
+---
+import goodBed from "../assets/projects/goodbed.png";
+import empresasPorElClima from "../assets/projects/empresas-por-el-clima.png";
+import sistemaDeDesignoSalvador from "../assets/projects/sistema-de-diseno-salvador.png";
+import { Image } from "astro:assets";
+
+const projects = [
+  {
+    label: "Producto · Growth",
+    name: "GoodBed: +91% visitas en 6 meses",
+    client: "GoodBed Inc — USA",
+    img: goodBed,
+  },
+  {
+    label: "Consultoría · Sostenibilidad",
+    name: "Empresas por el Clima",
+    client: "UNDP — Naciones Unidas RD",
+    img: empresasPorElClima,
+  },
+  {
+    label: "Design System · GovTech",
+    name: "Sistema de Diseño Salvador",
+    client: "El Salvador — STEMERIA",
+    img: sistemaDeDesignoSalvador,
+  },
+];
+---
+
+<section id="projects" class="bg-cream-2 px-5 py-10 md:px-10 lg:px-12">
+  <h2
+    class="mb-6 flex gap-2 font-sans text-2xl font-light md:mb-8 md:text-3xl lg:text-[44px]"
+  >
+    <span>Selected</span><em class="text-orange2 italic">projects</em>
+  </h2>
+
+  <div
+    class="reveal-group grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-8 lg:grid-cols-3"
+  >
+    {
+      projects.map((project) => (
+        <div class="reveal-item flex flex-col">
+          <p class="font-heading text-brown mb-2 text-[9.92px] font-medium tracking-[1.488px] uppercase">
+            {project.label}
+          </p>
+
+          <Image
+            src={project.img}
+            alt={project.name}
+            class={
+              "mb-4 aspect-video h-44 w-full rounded-2xl object-cover md:h-56.25"
+            }
+          />
+
+          <p class="font-heading mb-1 text-base font-bold text-black md:text-lg">
+            {project.name}
+          </p>
+
+          <p class="font-heading text-orange2 text-sm font-normal">
+            {project.client}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</section>

@@ -1,0 +1,66 @@
+---
+import img from "../assets/what-i-do.png";
+import A from "./A.astro";
+import PixelImage from "./PixelImage.astro";
+---
+
+<section
+  id="about"
+  class="bg-dark relative grid grid-cols-1 gap-8 px-5 pt-12 md:gap-12 md:px-10 md:pt-16 lg:grid-cols-[400px_1fr] lg:gap-15 lg:px-13"
+>
+  <div class="relative mx-auto h-full w-full lg:mx-0">
+    <PixelImage
+      src={img}
+      pixelFadeInDuration={0.5}
+      grayscaleAnimation={false}
+      alt="What I do"
+      class="h-auto w-full -rotate-y-180 overflow-hidden rounded-2xl md:h-134 md:max-w-98"
+    />
+  </div>
+
+  <div>
+    <p
+      class="font-heading mb-4 text-[10.4px] font-medium tracking-[2.08px] text-[#E8A07A] uppercase md:mb-6"
+    >
+      ✦ Why this work matters to me
+    </p>
+
+    <h2
+      class="font-heading mb-4 text-2xl leading-[1.15] md:mb-6 md:text-[44px]"
+    >
+      <strong class="text-white">A decade of</strong><br />
+      <em class="font-light text-[#E8A07A] italic">designing for impact.</em>
+    </h2>
+
+    <p
+      class="font-heading mb-4 max-w-186.5 text-base leading-[1.85] font-light text-white/80 md:mb-6"
+    >
+      Hey there 👋 I'm Kenny. In the last +14 years I've built my career at the
+      intersection of product, design, education, and advocacy because the most
+      meaningful work rarely lives in a single lane.
+    </p>
+
+    <div class="border-orange mb-4 max-w-175 border-l-2 pl-4 md:mb-6 md:pl-6">
+      <p
+        class="font-heading text-base leading-[1.55] font-light text-white md:text-[21.6px]"
+      >
+        The strongest products connect business goals, user needs, and human
+        impact, <strong class="font-bold">at the same time.</strong>
+      </p>
+    </div>
+
+    <p
+      class="font-heading mb-4 max-w-186.5 text-base leading-[1.85] font-light text-white/80 md:mb-6"
+    >
+      <span class="block">
+        Founder of <strong class="font-bold"
+          >Redviver. Professor. Mentor.</strong
+        >
+      </span>
+      & deeply committed to advancing the representation of women in tech and the
+      creative industries across the Caribbean and Latin America.
+    </p>
+
+    <A href="#projects"> View All Case Studies </A>
+  </div>
+</section>

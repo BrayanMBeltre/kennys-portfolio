@@ -1,0 +1,58 @@
+---
+import Logo from "../assets/logo.svg";
+import SpecializationsAnimation from "./SpecializationsAnimation.astro";
+
+const navItems = [
+  {
+    href: "#what-i-do",
+    text: "What I Do",
+  },
+  {
+    href: "#about",
+    text: "About Me",
+  },
+  {
+    href: "#services",
+    text: "Services",
+  },
+  {
+    href: "#mentorship",
+    text: "Mentorship",
+  },
+  {
+    href: "#contact",
+    text: "Contact",
+  },
+];
+---
+
+<nav
+  class="border-charcoal/8 absolute top-0 right-0 left-0 z-50 flex h-15 w-full items-center justify-between border-b px-4 md:px-7 lg:px-12"
+>
+  <a href="/" class="flex items-center gap-4 no-underline">
+    <Logo class="h-4 w-auto shrink-0 fill-white md:h-7" />
+    <SpecializationsAnimation />
+  </a>
+
+  <ul class="hidden list-none items-center gap-5 md:flex lg:gap-8">
+    {
+      navItems.map((item) => (
+        <li>
+          <a
+            href={item.href}
+            class="font-sans text-[11px] tracking-[1.44px] text-white/70 uppercase no-underline transition-colors duration-200 hover:text-white"
+          >
+            {item.text}
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+  <a
+    target="_blank"
+    href="https://calendly.com/kennymbeltre/letsworktogether"
+    class="font-heading cursor-pointer rounded-full border border-white px-4 py-2 text-[9px] font-semibold tracking-[1.568px] whitespace-nowrap text-white uppercase transition-colors duration-200 hover:bg-white hover:text-black md:px-6 md:py-2 md:text-[11px]"
+  >
+    Book a free call
+  </a>
+</nav>

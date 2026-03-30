@@ -1,0 +1,69 @@
+{
+  "version": "0.1",
+  "annotations": [
+    {
+      "id": "a_f1987951",
+      "timestamp": "2026-03-29T22:51:34.840Z",
+      "page": "/",
+      "selector": "div.bg-orange.border-y-2.border-charcoal.h-18\\.25.flex.items-center.overflow-hidden",
+      "elementTag": "div",
+      "elementText": "Your time is now ✦  Build a product that truly works ✦  Create meaningful experiences ✦  Your time is now ✦  Build a product that truly works ✦  Create meaningful experiences ✦  Your time is now ✦  Bu",
+      "viewport": {
+        "width": 1421,
+        "height": 913
+      },
+      "device": "desktop",
+      "text": "Make it infinite",
+      "author": "Developer",
+      "status": "resolved"
+    },
+    {
+      "id": "a_d40bff0b",
+      "timestamp": "2026-03-29T22:54:00.768Z",
+      "page": "/",
+      "selector": "div.absolute.rounded-full.border.border-dashed.border-white\\/10:nth-child(3)",
+      "elementTag": "div",
+      "elementText": "",
+      "viewport": {
+        "width": 1421,
+        "height": 913
+      },
+      "device": "desktop",
+      "text": "Remidender: Make them breathe. Not all at the same time",
+      "author": "Developer",
+      "status": "resolved"
+    },
+    {
+      "id": "a_51698841",
+      "timestamp": "2026-03-29T22:54:37.432Z",
+      "page": "/",
+      "selector": "a.text-charcoal.font-heading.hover\\:bg-charcoal\\/5.cursor-pointer.rounded-full.border.border-black.bg-transparent.px-5.py-2\\.5.text-\\[11px\\].font-semibold.tracking-\\[1\\.568px\\].uppercase.transition-colors.duration-200",
+      "elementTag": "a",
+      "elementText": "Book a free call",
+      "viewport": {
+        "width": 1421,
+        "height": 913
+      },
+      "device": "desktop",
+      "text": "Make it brown and hover outline",
+      "author": "Developer",
+      "status": "resolved"
+    },
+    {
+      "id": "a_9566aaeb",
+      "timestamp": "2026-03-30T03:59:58.686Z",
+      "page": "/",
+      "selector": "div.absolute.bottom-0.flex.w-full.justify-center",
+      "elementTag": "div",
+      "elementText": "",
+      "viewport": {
+        "width": 1421,
+        "height": 913
+      },
+      "device": "desktop",
+      "text": "Se despegó mi nombre del apellido",
+      "author": "Developer",
+      "status": "resolved"
+    }
+  ]
+}

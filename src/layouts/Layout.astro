@@ -1,0 +1,89 @@
+---
+import "@fontsource-variable/dm-sans";
+import "@fontsource/plus-jakarta-sans/400.css";
+import "@fontsource/plus-jakarta-sans/500.css";
+import "@fontsource/plus-jakarta-sans/600.css";
+import "@fontsource/plus-jakarta-sans/700.css";
+import "@fontsource/plus-jakarta-sans/800.css";
+import "@fontsource/great-vibes";
+import "@fontsource/instrument-serif/400-italic.css";
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+const description =
+  "Kenny Montaño Beltre — Product Manager & Design Strategist with 14+ years building products for governments, the UN, and global organizations.";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Kenny M. Beltre" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Kenny M. Beltre" />
+    <meta property="og:url" content={Astro.url} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL("/og.png", Astro.url)} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={Astro.url} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={new URL("/og.png", Astro.url)} />
+
+    <title>{title}</title>
+
+    <!-- MailerLite Universal -->
+    <script is:inline>
+      (function (w, d, e, u, f, l, n) {
+        ((w[f] =
+          w[f] ||
+          function () {
+            (w[f].q = w[f].q || []).push(arguments);
+          }),
+          (l = d.createElement(e)),
+          (l.async = 1),
+          (l.src = u),
+          (n = d.getElementsByTagName(e)[0]),
+          n.parentNode.insertBefore(l, n));
+      })(
+        window,
+        document,
+        "script",
+        "https://assets.mailerlite.com/js/universal.js",
+        "ml",
+      );
+      ml("account", "2231385");
+    </script>
+    <!-- End MailerLite Universal -->
+  </head>
+  <body class="bg-cream-2 text-charcoal">
+    <slot />
+  </body>
+</html>
+
+<script>
+  import { initAnimations } from "../lib/animations.js";
+
+  // Initialize on first load
+  document.addEventListener("DOMContentLoaded", initAnimations);
+
+  // If you use Astro View Transitions, also run on swap:
+  document.addEventListener("astro:after-swap", initAnimations);
+</script>

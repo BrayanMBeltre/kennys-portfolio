@@ -1,0 +1,60 @@
+---
+const expertise = [
+  {
+    title: "Product<br />Strategy",
+    description:
+      "Align product vision, user needs, and business priorities to make smarter decisions earlier.",
+  },
+  {
+    title: "Experience<br />Design",
+    description:
+      "Shape clearer, more intuitive experiences that improve usability, trust, and adoption.",
+  },
+  {
+    title: "Digital<br />Transformation",
+    description:
+      "Turn complex institutional or operational challenges into practical, user-centered systems.",
+  },
+  {
+    title: "Education<br />& Leadership",
+    description:
+      "Equip teams, founders, and professionals with stronger product thinking and execution.",
+  },
+];
+---
+
+<section
+  id="what-i-do"
+  class="bg-brown relative px-5 py-13 md:px-10 lg:px-20.75 lg:py-20"
+>
+  <p
+    class="reveal-up font-heading mb-4 text-[10.4px] font-medium tracking-[2.08px] text-white uppercase md:mb-6"
+  >
+    ✦ MY expertise
+  </p>
+
+  <h2
+    class="reveal-up text-cream-2 mb-3 font-sans text-3xl leading-tight font-light md:text-[44px]"
+  >
+    What I help companies<br /><em>&amp; organizations do</em>
+  </h2>
+
+  <!-- Container for the grid with the reveal-group logic -->
+  <div
+    class="reveal-group mt-8 grid grid-cols-1 gap-1 sm:grid-cols-2 md:mt-12 lg:grid-cols-4"
+  >
+    {
+      expertise.map((item) => (
+        <div class="reveal-item bg-cream-3 border-charcoal/8 border-b p-8 last:border-b-0 md:border-r md:border-b-0 md:p-10 lg:p-12 lg:last:border-r-0">
+          <h3
+            class="font-heading text-charcoal mb-3 text-xl leading-[1.6] font-semibold"
+            set:html={item.title}
+          />
+          <p class="font-heading text-muted text-[15px] leading-[1.55] font-normal">
+            {item.description}
+          </p>
+        </div>
+      ))
+    }
+  </div>
+</section>
