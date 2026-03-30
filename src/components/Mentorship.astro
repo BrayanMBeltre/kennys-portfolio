@@ -1,0 +1,130 @@
+---
+import A from "./A.astro";
+import ActivityItem from "./ActivityItem.astro";
+
+const activities = [
+  {
+    year: "2024 · Global",
+    title: "Mentor — Bridge for Billions",
+    badge: "Mentor",
+    variant: "green" as const,
+  },
+  {
+    year: "2024 · Girls in Tech",
+    title: "Judge — Hacking for Humanity Hackathon",
+    badge: "Judge",
+    variant: "dark" as const,
+  },
+  {
+    year: "2022-2023 · IREX & U.S. Dept. of State",
+    title: "YLAI Fellow — Only Dominican Woman Selected",
+    badge: "Fellow",
+    variant: "green" as const,
+  },
+  {
+    year: "2024 · ADDV",
+    title: "Advisor — Dominican Association of Video Game Developers",
+    badge: "Advisor",
+    variant: "dark" as const,
+  },
+  {
+    year: "2020 · Global Shapers",
+    title: "Coach — Shaping Agro Hackathon",
+    badge: "Coach",
+    variant: "green" as const,
+  },
+];
+---
+
+<section
+  id="mentorship"
+  class="bg-white px-5 py-12 md:px-10 md:py-16 lg:px-12 lg:py-25"
+>
+  <p
+    class="font-heading text-brown mb-5 text-[10.4px] font-medium tracking-[2.08px] uppercase"
+  >
+    ✦ BEYOND the work itself
+  </p>
+
+  <div class="grid grid-cols-1 items-start gap-10 lg:grid-cols-[500px_1fr]">
+    <div>
+      <h2
+        class="text-charcoal mb-4 font-sans text-2xl leading-tight font-light md:text-3xl lg:text-[44px]"
+      >
+        Mentorship<br />&amp; <em class="text-orange2 italic">Collaboration</em>
+      </h2>
+      <p
+        class="text-muted mb-10 max-w-111.25 font-sans text-[15px] leading-[1.8]"
+      >
+        I also partner with communities, organizations, and programs that are
+        shaping the future of product, design, and leadership.
+      </p>
+
+      <div class="mb-10 flex gap-6 md:gap-10">
+        <div>
+          <div
+            class="text-orange2 font-sans text-3xl leading-none font-light md:text-4xl lg:text-[52px]"
+          >
+            14+
+          </div>
+          <div
+            class="text-muted mt-1 font-sans text-xs tracking-widest uppercase"
+          >
+            Years in Tech
+          </div>
+        </div>
+        <div>
+          <div
+            class="text-orange2 font-sans text-3xl leading-none font-light md:text-4xl lg:text-[52px]"
+          >
+            5+
+          </div>
+          <div
+            class="text-muted mt-1 font-sans text-xs tracking-widest uppercase"
+          >
+            Countries · YLAI
+          </div>
+        </div>
+        <div>
+          <div
+            class="text-orange2 font-sans text-3xl leading-none font-light md:text-4xl lg:text-[52px]"
+          >
+            ∞
+          </div>
+          <div
+            class="text-muted mt-1 font-sans text-xs tracking-widest uppercase"
+          >
+            Impact
+          </div>
+        </div>
+      </div>
+
+      <p class="text-charcoal mb-4 font-sans text-[15px]">
+        Need guidance in your career or project?
+      </p>
+      <div class="flex justify-center md:justify-start">
+        <A
+          target="_blank"
+          href="https://calendly.com/kennymbeltre/letsworktogether"
+          variant={"secondary"}
+          size={"sm"}
+        >
+          Book a free call
+        </A>
+      </div>
+    </div>
+
+    <div class="reveal-group flex flex-col gap-3">
+      {
+        activities.map((activity) => (
+          <ActivityItem
+            year={activity.year}
+            title={activity.title}
+            badge={activity.badge}
+            variant={activity.variant}
+          />
+        ))
+      }
+    </div>
+  </div>
+</section>

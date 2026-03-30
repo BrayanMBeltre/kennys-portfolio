@@ -1,0 +1,54 @@
+---
+import { cva, type VariantProps } from "class-variance-authority";
+import { cn } from "../lib/utils";
+import type { HTMLAttributes } from "astro/types";
+
+export const buttonVariants = cva(
+  "inline-flex shrink-0 items-center justify-center transition-all duration-200 cursor-pointer select-none no-underline uppercase tracking-[1.568px]",
+  {
+    variants: {
+      variant: {
+        primary:
+          "bg-white text-brown border-transparent hover:bg-white/90 hover:shadow-md hover:scale-[1.02] active:scale-95",
+        secondary:
+          "bg-orange text-white border-orange hover:opacity-90 hover:shadow-lg hover:scale-[1.02] active:scale-95",
+        outline:
+          "bg-transparent border border-black text-charcoal hover:shadow-sm hover:scale-[1.02] active:scale-95",
+        ghost:
+          "bg-transparent text-white hover:text-white/80 hover:bg-white/5 tracking-[1.456px] normal-case active:scale-95",
+      },
+      size: {
+        default: "px-5 py-3 text-[12px] font-semibold rounded-full",
+        sm: "px-5 py-2.5 text-[11px] font-semibold rounded-full",
+        xs: "text-[10.4px] font-medium",
+        none: "p-0",
+      },
+    },
+    defaultVariants: {
+      variant: "primary",
+      size: "default",
+    },
+  },
+);
+
+// Extend HTMLAttributes to support both buttons and anchors (links)
+interface Props
+  extends HTMLAttributes<"a">, VariantProps<typeof buttonVariants> {}
+
+const {
+  variant = "primary",
+  size = "default",
+  class: className,
+  ...props
+} = Astro.props;
+---
+
+<a
+  data-slot="button"
+  data-variant={variant}
+  data-size={size}
+  class={cn(buttonVariants({ variant, size, className }))}
+  {...props}
+>
+  <slot />
+</a>

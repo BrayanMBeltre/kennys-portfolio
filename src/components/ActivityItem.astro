@@ -1,0 +1,32 @@
+---
+interface Props {
+  year: string;
+  title: string;
+  badge: string;
+  variant: "green" | "dark";
+}
+
+const { year, title, badge, variant } = Astro.props;
+
+const badgeClasses = {
+  green: "bg-[#3b5240]",
+  dark: "bg-charcoal",
+};
+---
+
+<div
+  class="reveal-item bg-cream md:justify-inherit flex h-auto min-h-18 items-center justify-between gap-2 rounded-xl px-4 py-3 transition-colors duration-200 hover:bg-[#e0d8cc] md:h-21.75 md:flex-nowrap md:gap-0 md:px-6 md:py-0"
+>
+  <div class="flex flex-col gap-1">
+    <span
+      class="text-orange2 counter font-sans text-[11px] font-bold tracking-[1.32px] uppercase"
+      >{year}</span
+    >
+    <span class="text-charcoal font-sans text-sm md:text-base">{title}</span>
+  </div>
+  <span
+    class={`h-6 px-3 rounded-full font-sans text-[10px] tracking-widest uppercase text-white flex items-center whitespace-nowrap shrink-0 ${badgeClasses[variant]}`}
+  >
+    {badge}
+  </span>
+</div>

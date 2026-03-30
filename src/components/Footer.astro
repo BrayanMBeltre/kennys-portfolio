@@ -1,0 +1,60 @@
+---
+import Logo from "../assets/logo.svg";
+import A from "./A.astro";
+
+const year = new Date().getFullYear();
+---
+
+<footer
+  id="contact"
+  class="bg-dark relative flex min-h-auto flex-col items-center px-5 py-12 md:px-10 md:py-16 lg:min-h-121.75 lg:px-14 lg:py-20"
+>
+  <div class="mb-10 flex flex-col items-center gap-6 md:mb-15">
+    <h2
+      class="text-center font-sans text-2xl leading-tight font-light text-white md:text-3xl lg:text-[44px]"
+    >
+      Ready to move<br /><em class="text-[#E8A07A] italic"
+        >from idea to impact?</em
+      >
+    </h2>
+    <p
+      class="font-heading max-w-153 px-4 text-center text-sm leading-[1.85] font-light text-white md:px-0 md:text-base"
+    >
+      Whether you're shaping a product, leading a team, planning an event, or
+      building a more human-centered digital experience, I'd love to hear what
+      you're working on.
+    </p>
+    <A
+      target="_blank"
+      href="https://calendly.com/kennymbeltre/letsworktogether"
+    >
+      Book a free discovery call
+    </A>
+  </div>
+
+  <div
+    class="grid w-full grid-cols-1 items-center justify-items-center gap-6 lg:grid-cols-3"
+  >
+    <a href="/" aria-label="Kenny M. Beltre">
+      <Logo class="h-7 w-auto fill-white text-white" />
+    </a>
+
+    <div class="flex justify-center gap-8">
+      <A
+        variant={"ghost"}
+        href="https://www.linkedin.com/in/kennymbeltre/"
+        target="_blank"
+        >LinkedIn
+      </A>
+
+      <A href="mailto:kennymbeltre@gmail.com" target="_blank" variant={"ghost"}
+        >Email</A
+      >
+    </div>
+    <p
+      class="font-heading text-white text-center text-[10.4px] font-light tracking-[0.624px]"
+    >
+      © {year} Kenny Montaño Beltre · Santo Domingo, RD
+    </p>
+  </div>
+</footer>

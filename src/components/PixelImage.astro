@@ -1,0 +1,93 @@
+---
+import { Image } from "astro:assets";
+import { cn } from "../lib/utils";
+
+interface Grid {
+  rows: number;
+  cols: number;
+}
+
+const DEFAULT_GRIDS: Record<string, Grid> = {
+  "6x4": { rows: 4, cols: 6 },
+  "8x8": { rows: 8, cols: 8 },
+  "8x3": { rows: 3, cols: 8 },
+  "4x6": { rows: 6, cols: 4 },
+  "3x8": { rows: 8, cols: 3 },
+};
+
+interface Props {
+  src: ImageMetadata; // Using Astro's Metadata type
+  alt: string;
+  grid?: keyof typeof DEFAULT_GRIDS;
+  customGrid?: Grid;
+  grayscaleAnimation?: boolean;
+  pixelFadeInDuration?: number;
+  maxAnimationDelay?: number;
+  colorRevealDelay?: number;
+  class?: string;
+}
+
+const {
+  src,
+  alt,
+  grid = "6x4",
+  customGrid,
+  grayscaleAnimation = true,
+  pixelFadeInDuration = 0.5,
+  maxAnimationDelay = 0.8,
+  colorRevealDelay = 0.5,
+  class: className,
+} = Astro.props;
+
+const { rows, cols } = customGrid || DEFAULT_GRIDS[grid];
+const totalPieces = rows * cols;
+
+// Calculate aspect ratio from image metadata to prevent height collapse
+const aspectRatio = src.width / src.height;
+
+const pieces = Array.from({ length: totalPieces }, (_, index) => {
+  const row = Math.floor(index / cols);
+  const col = index % cols;
+
+  // Add a tiny overlap amount (bleed)
+  const overlap = 0.2;
+
+  const x1 = col * (100 / cols);
+  const y1 = row * (100 / rows);
+
+  // We add the overlap to the bottom and right coordinates
+  const x2 = (col + 1) * (100 / cols) + overlap;
+  const y2 = (row + 1) * (100 / rows) + overlap;
+
+  return `polygon(${x1}% ${y1}%, ${x2}% ${y1}%, ${x2}% ${y2}%, ${x1}% ${y2}%)`;
+});
+---
+
+<div
+  class:list={cn("pixel-image-container relative select-none", className)}
+  style={{ aspectRatio: `${aspectRatio}` }}
+  data-duration={pixelFadeInDuration}
+  data-max-delay={maxAnimationDelay}
+  data-color-delay={colorRevealDelay}
+  data-grayscale={grayscaleAnimation.toString()}
+>
+  <!-- Main pieces -->
+  {
+    pieces.map((clipPath) => (
+      <div
+        class="pixel-piece absolute inset-0 h-full w-full opacity-0"
+        style={{ clipPath }}
+      >
+        <Image
+          src={src}
+          alt={alt}
+          class="pixel-img h-full w-full object-cover"
+          draggable="false"
+          style={grayscaleAnimation ? "filter: grayscale(1);" : ""}
+        />
+      </div>
+    ))
+  }
+</div>
+
+

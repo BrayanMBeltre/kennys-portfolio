@@ -1,0 +1,74 @@
+---
+const pillLabels = [
+  "Product Manager",
+  "Speaker",
+  "UX / UI Designer",
+  "Mentor",
+  "Educator",
+  "Founder",
+  "Game Designer",
+];
+---
+
+<div
+  class="orbital-wrapper js-orbital flex w-full items-center justify-center overflow-hidden p-2 sm:p-8"
+>
+  <div
+    class="js-orbital-container relative aspect-square w-full max-w-[600px] opacity-0"
+  >
+    <!-- Background Rings (Using % for perfect scaling) -->
+    <div
+      class="js-ring absolute top-1/2 left-1/2 h-[45%] w-[45%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-white/20"
+    >
+    </div>
+    <div
+      class="js-ring absolute top-1/2 left-1/2 h-[70%] w-[70%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-white/10"
+    >
+    </div>
+    <div
+      class="js-ring absolute top-1/2 left-1/2 h-[95%] w-[95%] -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-white/5"
+    >
+    </div>
+
+    <!-- Center Profile Bubble -->
+    <div
+      class="js-center-bubble absolute top-1/2 left-1/2 z-20 flex -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-orange-600 shadow-[0_0_30px_rgba(234,88,12,0.4)]"
+      style="width: 28%; height: 28%;"
+    >
+      <p
+        class="text-center font-sans text-[clamp(0.6rem,3cqi,1.1rem)] leading-tight font-semibold text-white italic"
+      >
+        Kenny<br />Montaño<br />Beltre
+      </p>
+    </div>
+
+    <!-- Orbiting Pills Container -->
+    <div class="absolute inset-0 z-10">
+      {
+        pillLabels.map((label) => (
+          <div class="js-pill absolute flex cursor-pointer items-center justify-center rounded-full border border-white/20 bg-charcoal p-1 text-center font-sans font-medium tracking-tighter text-white uppercase backdrop-blur-sm transition-colors hover:border-white/40 sm:tracking-widest">
+            <span class="text-[clamp(0.5rem,2.2cqi,0.75rem)] leading-none">
+              {label}
+            </span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<style>
+  .orbital-wrapper {
+    /* Use Container Queries so text scales based on the box size, not the screen */
+    container-type: inline-size;
+  }
+
+  .js-pill {
+    /* Ensure text fits inside circles */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-break: break-word;
+    hyphens: auto;
+  }
+</style>

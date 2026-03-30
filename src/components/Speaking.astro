@@ -1,0 +1,77 @@
+---
+import speakingTalks from "../assets/speaking-talks.jpeg";
+import { Image } from "astro:assets";
+import A from "./A.astro";
+
+const talks = [
+  {
+    year: "Conference · 2024",
+    title: "Big Data Do — Starting Your Career in Tech & Video Game Design",
+  },
+  {
+    year: "Latinity Colombia · 2018",
+    title: "Speaker — Largest Women in STEM Event in Latin America",
+  },
+  {
+    year: "Microsoft · 2016",
+    title: "Create Experiences, Not Just Interfaces",
+  },
+  {
+    year: "Codecamp SDQ · 2019",
+    title: "Panelist — The Future of Women in IT",
+  },
+  {
+    year: "Interview · Featured",
+    title: "UI/UX Pioneer in Dominican Republic",
+  },
+];
+---
+
+<section
+  id="speaking"
+  class="grid grid-cols-1 items-start gap-10 bg-[#FDFCFA] px-5 py-12 md:gap-12 md:px-10 md:py-16 lg:grid-cols-2 lg:gap-15 lg:px-12.75 lg:py-25"
+>
+  <div>
+    <h2
+      class="text-charcoal mb-8 font-sans text-2xl leading-tight font-light md:mb-10 md:text-3xl lg:text-[36px]"
+    >
+      Speaking <em class="text-orange2 italic">&amp; Talks</em>
+    </h2>
+
+    <Image
+      src={speakingTalks}
+      alt="Speaking talks"
+      class="h-52 w-full max-w-full rounded-3xl object-cover md:mb-8 md:h-72 lg:h-86.25"
+    />
+  </div>
+
+  <div class="reveal-group flex flex-col">
+    {
+      talks.map((talk) => (
+        <div class="reveal-item flex h-auto min-h-18 items-center justify-between border-b border-black/10 px-3 py-3 transition-colors duration-200 hover:bg-black/2 md:h-21.75 md:py-0">
+          <div class="flex flex-col gap-1.5">
+            <span class="text-orange2 font-sans text-[10px] font-medium tracking-[1.5px] uppercase">
+              {talk.year}
+            </span>
+            <span class="text-charcoal font-sans text-sm leading-snug md:text-[17px]">
+              {talk.title}
+            </span>
+          </div>
+          <span class="text-muted shrink-0 font-sans text-xl">→</span>
+        </div>
+      ))
+    }
+
+    <div class="flex justify-center sm:justify-start">
+      <A
+        target="_blank"
+        href="https://calendly.com/kennymbeltre/letsworktogether"
+        variant={"secondary"}
+        size={"sm"}
+        class:list={"mt-6 w-fit"}
+      >
+        Start a collaboration
+      </A>
+    </div>
+  </div>
+</section>

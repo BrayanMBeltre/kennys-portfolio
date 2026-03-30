@@ -1,0 +1,26 @@
+---
+const specializations = [
+  "Kenny M. Beltre",
+  "Consultant",
+  "Product Manager",
+  "Mentor",
+  "Professor",
+  "Product Designer",
+  "GovTech Specialist",
+];
+---
+
+<ul class="relative h-7 w-fit" data-specializations-list>
+  {
+    specializations.map((spec, index) => (
+      <li
+        id={`specialization-${index}`}
+        class="absolute flex h-full items-center text-xs font-medium whitespace-nowrap text-white italic opacity-0 md:text-lg"
+      >
+        {spec}
+      </li>
+    ))
+  }
+</ul>
+
+

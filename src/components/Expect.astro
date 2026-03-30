@@ -1,0 +1,34 @@
+---
+const items = [
+  "Strategic thinking with strong execution awareness",
+  "User-centered decisions without losing business context",
+  "Clear communication across disciplines and stakeholders",
+  "A thoughtful, collaborative, and high-standard approach",
+  "Work grounded in both rigor and empathy",
+];
+---
+
+<section
+  class="bg-cream border-charcoal/10 flex flex-col items-start gap-8 border-b px-5 py-16 md:flex-row md:gap-12 md:px-10 md:py-20 lg:gap-20 lg:px-12 lg:py-25"
+>
+  <div class="w-full flex-none md:w-85 lg:w-122.5">
+    <h2
+      class="text-charcoal font-sans text-2xl leading-tight font-light md:text-3xl lg:text-[44px]"
+    >
+      What you can expect from <em class="text-orange italic"
+        >working with me?</em
+      >
+    </h2>
+  </div>
+  <div class="flex-1">
+    <ul class="reveal-group list-none">
+      {
+        items.map((item) => (
+          <li class="font-heading reveal-item text-brown py-1 text-sm leading-[1.98] md:text-base">
+            <span class="text-orange mr-1">✦</span> {item}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

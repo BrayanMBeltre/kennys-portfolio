@@ -1,127 +1,58 @@
 ---
-import BaseLayout from "@/Layouts/BaseLayout.astro";
-import ProyectCard from "@/components/ProyectCard.astro";
+import Layout from "../layouts/Layout.astro";
+import Nav from "../components/Nav.astro";
+import Hero from "../components/Hero.astro";
+import LogosStrip from "../components/LogosStrip.astro";
+import WhatIDo from "../components/WhatIDo.astro";
+import About from "../components/About.astro";
+import WhyDifferent from "../components/WhyDifferent.astro";
+import Marquee from "../components/Marquee.astro";
+import Expect from "../components/Expect.astro";
+import Services from "../components/Services.astro";
+import Projects from "../components/Projects.astro";
+import Communities from "../components/Communities.astro";
+import Mentorship from "../components/Mentorship.astro";
+import Speaking from "../components/Speaking.astro";
+import Footer from "../components/Footer.astro";
 
-import empresasPorElClimaImage from "@/assets/images/empresasporelclima.avif";
-import goodBedImage from "@/assets/images/goodbed.avif";
-import hablemosappImage from "@/assets/images/hablemosapp.avif";
-import { cn } from "@/lib/utils";
+const marqueeItems = [
+  "Your time is now",
+  "Build a product that truly works",
+  "Create meaningful experiences",
+];
 ---
 
-<BaseLayout>
-  <main class="container">
-    <h1 class="mt-[100px] max-w-6xl mx-auto animate-title">
-      <span class={cn(["text-[32px] lg:text-[64px] font-semibold"])}
-        >Hey there <span
-          class={cn([
-            "inline-block",
-            "animate-wave origin-[70%_70%] repeat-1 hover:repeat-infinite delay-1000",
-          ])}
-        >
-          👋</span
-        ></span
-      >
+<Layout title="Kenny Montaño Beltre — Product Manager & Design Strategist">
+  <Nav />
+  <main>
+    <Hero />
+    <LogosStrip />
+    <WhatIDo />
+    <About />
+    <WhyDifferent />
+    <Services />
+    <Projects />
+    <Communities />
+    <Mentorship />
+    <Speaking />
 
-      <br />
+    <div
+      class="bg-orange border-charcoal flex h-18.25 items-center overflow-hidden border-y-2"
+    >
+      <Marquee speed={40} pauseOnHover={false}>
+        {
+          marqueeItems.map((item) => (
+            <div class="font-heading text-white  text-xl font-semibold italic">
+              {item}
+            </div>
 
-      <span class="text-[54px] lg:text-[160px] lg:-mt-[40px] font-semibold">
-        I’m <i class="text-primary italic font-serif">Kenny</i>
-      </span>
-
-      <br />
-
-      <span
-        class="text-[22px] lg:text-[40px] lg:-mt-[30px] font-bold text-foreground/70 dark:text-foreground/80"
-      >
-        Product Manager, Designer <br />
-        & Digital Communication Specialist
-      </span>
-    </h1>
-
-    <div class="mt-[64px] flex justify-center">
-      <svg
-        width="33"
-        height="48"
-        viewBox="0 0 33 48"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-        class="animate-mouse"
-      >
-        <path
-          d="M16.5 16L16.5 24"
-          stroke="white"
-          stroke-width="2"
-          stroke-linecap="round"
-          class="stroke-current"
-        >
-        </path>
-        <rect
-          class="stroke-current"
-          x="1"
-          y="0.5"
-          width="31"
-          height="47"
-          rx="15.5"
-          stroke="white"></rect>
-      </svg>
+            <span class="text-charcoal/50">✦</span>
+          ))
+        }
+      </Marquee>
     </div>
 
-    <div id="projects" class="mt-[70px] space-y-10">
-      <ProyectCard
-        title="GoodBed Locator Pages"
-        job={"UX/UI Design"}
-        date="2023"
-        description="Redesign the Locator Pages create a whole new experience to buy mattresses based on location navigating a vast array options to choose from."
-        link="https://www.figma.com/proto/stVcX8TOBHvoyT6qFKerYt/2024-Kenny-MBeltre?page-id=1%3A25&node-id=1-6801&viewport=-13036%2C-1772%2C0.49&t=opyS1H4VbRc5RjMx-1&scaling=scale-down-width&starting-point-node-id=1%3A6801&content-scaling=fixed"
-        image={goodBedImage}
-        target="_blank"
-      />
-
-      <ProyectCard
-        title="Empresas por el Clima"
-        job={"product manager"}
-        date="2022"
-        description="A platform with a user-friendly interactive form to simplify climate action for businesses of all sizes and show its data in a climate dashboard."
-        link="https://www.figma.com/proto/stVcX8TOBHvoyT6qFKerYt/2024-Kenny-MBeltre?page-id=1%3A25&node-id=13-1935&viewport=-13036%2C-1772%2C0.49&t=GLMwfTshmNXWDCQo-1&scaling=scale-down-width&starting-point-node-id=13%3A1935&content-scaling=fixed"
-        image={empresasPorElClimaImage}
-        target="_blank"
-      />
-
-      <ProyectCard
-        title="Hablemos sin filtro"
-        job={"UX/UI Design"}
-        date="2020"
-        description="A card game app for playing 'Hablemos sin Filtro' with friends, allowing users to share and discuss answers in an interactive environment."
-        link="https://kennymbeltre.contra.com/p/PNB7YPNo-card-game-mvp-case-study?openCustomizationSidebarScreen=closed&portfolioGuide=1&styleOverride=sydney%3Adawn"
-        image={hablemosappImage}
-        target="_blank"
-      />
-    </div>
+    <Expect />
   </main>
-</BaseLayout>
-
-<script>
-  import gsap from "gsap";
-
-  const tl = gsap.timeline();
-
-  tl.from(".animate-title span", {
-    y: 20,
-    opacity: 0,
-    duration: 0.5,
-    stagger: 0.2,
-  });
-
-  tl.from(".animate-mouse", {
-    y: 20,
-    opacity: 0,
-    duration: 0.5,
-  });
-
-  gsap.to(".animate-mouse", {
-    y: 10,
-    repeat: -1,
-    yoyo: true,
-    duration: 0.5,
-  });
-</script>
+  <Footer />
+</Layout>

@@ -1,0 +1,16 @@
+{
+    "plugins": [
+        "prettier-plugin-tailwindcss-canonical-classes",
+        "prettier-plugin-astro",
+        "prettier-plugin-tailwindcss"
+    ],
+    "tailwindcssCanonicalStylesheet": "src/styles/global.css",
+    "overrides": [
+        {
+            "files": "*.astro",
+            "options": {
+                "parser": "astro"
+            }
+        }
+    ]
+}

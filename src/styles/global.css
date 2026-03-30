@@ -1,0 +1,46 @@
+@import "tailwindcss";
+@plugin "tailwindcss-animate";
+
+@theme {
+  /* Colors - New Design */
+  --color-brown: #56260f;
+  --color-orange: #c4622d;
+  --color-orange2: #c85c38;
+  --color-cream: #ede6d8;
+  --color-cream-2: #f6f2e6;
+  --color-cream-3: #ede5d5;
+  --color-dark: #181915;
+  --color-charcoal: #1a1a1a;
+  --color-yellow: #ffde38;
+  --color-muted: #7a6e62;
+  --color-light-bg: #fdfcfa;
+
+  /* Fonts */
+  --font-sans: "DM Sans", system-ui, sans-serif;
+  --font-heading: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-decorative: "Great Vibes", cursive;
+
+  /* Animations */
+  --animate-marquee: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 300;
+  margin: 0 auto;
+}
+
+
