@@ -26,51 +26,6 @@ const {
   </div>
 </div>
 
-<script>
-  import { gsap } from "gsap";
-
-  const setupMarquee = () => {
-    const containers = document.querySelectorAll(".marquee-container");
-
-    containers.forEach((container) => {
-      const track = container.querySelector(".marquee-track");
-      if (!track) return;
-
-      // 1. CLONE THE CONTENT: Duplicate the internal HTML to create the loop
-      track.innerHTML += track.innerHTML;
-
-      const speed = Number(container.getAttribute("data-speed"));
-      const direction = container.getAttribute("data-direction");
-      const pauseOnHover = container.getAttribute("data-pause") === "true";
-
-      // 2. GSAP ANIMATION
-      const xTarget = direction === "left" ? "-50%" : "0%";
-      const xStart = direction === "left" ? "0%" : "-50%";
-
-      const tween = gsap.fromTo(
-        track,
-        { x: xStart },
-        {
-          x: xTarget,
-          duration: speed,
-          ease: "none",
-          repeat: -1,
-        },
-      );
-
-      // 3. OPTIONAL PAUSE
-      if (pauseOnHover) {
-        container.addEventListener("mouseenter", () => tween.pause());
-        container.addEventListener("mouseleave", () => tween.play());
-      }
-    });
-  };
-
-  // Run on load and after Astro page transitions
-  document.addEventListener("DOMContentLoaded", setupMarquee);
-  document.addEventListener("astro:after-swap", setupMarquee);
-</script>
-
 <style>
   /* Prevents children from shrinking */
   .marquee-track > :global(*) {
