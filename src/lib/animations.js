@@ -180,6 +180,21 @@ const setupOrbitalDiagrams = () => {
     const pills = Array.from(container.querySelectorAll(".js-pill"));
     const rings = Array.from(container.querySelectorAll(".js-ring"));
     const centerBubble = container.querySelector(".js-center-bubble");
+    let floatTweens = [];
+
+    function createFloatTweens() {
+      floatTweens.forEach((t) => t.kill());
+      floatTweens = pills.map((pill, i) =>
+        gsap.to(pill, {
+          y: "+=8",
+          duration: 2 + Math.random(),
+          repeat: -1,
+          yoyo: true,
+          ease: "sine.inOut",
+          delay: i * 0.2,
+        }),
+      );
+    }
 
     function layout() {
       const w = container.offsetWidth;
@@ -190,6 +205,9 @@ const setupOrbitalDiagrams = () => {
 
       // DYNAMIC PILL SIZE: Smaller on mobile so they don't overlap
       const pillSize = isMobile ? w * 0.22 : w * 0.21;
+
+      // Kill existing float tweens before repositioning
+      floatTweens.forEach((t) => t.kill());
 
       pills.forEach((pill, i) => {
         const angle = (i * 360) / pills.length;
@@ -209,6 +227,9 @@ const setupOrbitalDiagrams = () => {
           height: pillSize,
         });
       });
+
+      // Recreate float tweens from the new positions
+      createFloatTweens();
     }
 
     function initOrbitalAnimations() {
@@ -238,18 +259,6 @@ const setupOrbitalDiagrams = () => {
           duration: 30 + i * 10,
           repeat: -1,
           ease: "none",
-        });
-      });
-
-      // Float
-      pills.forEach((pill, i) => {
-        gsap.to(pill, {
-          y: "+=8",
-          duration: 2 + Math.random(),
-          repeat: -1,
-          yoyo: true,
-          ease: "sine.inOut",
-          delay: i * 0.2,
         });
       });
     }
