@@ -5,7 +5,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 // ── Scroll-reveal animations ────────────────────────────────────────
 
-const initAnimations = () => {
+const setupReveal = () => {
   // 1. Single Items: Find everything with .reveal-up
   const fadeUpElements = document.querySelectorAll(".reveal-up");
 
@@ -280,7 +280,7 @@ const setupSpecializations = () => {
 // ── Bootstrap ───────────────────────────────────────────────────────
 
 const initAll = () => {
-  initAnimations();
+  setupReveal();
   setupMarquee();
   setupPixelImages();
   setupOrbitalDiagrams();
@@ -288,7 +288,7 @@ const initAll = () => {
 };
 
 /** Call once from Layout to wire up all animations. */
-export const boot = () => {
+export const initAnimations = () => {
   // Initialize immediately if DOM is already ready, otherwise wait
   if (document.readyState === "loading") {
     document.addEventListener("DOMContentLoaded", initAll, { once: true });
