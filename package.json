@@ -13,6 +13,8 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astro-kits/google-analytics": "^0.1.0",
+    "@astrojs/partytown": "^2.1.6",
     "astro": "^6.1.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

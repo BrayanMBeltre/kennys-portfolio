@@ -7,6 +7,7 @@ import "@fontsource/plus-jakarta-sans/700.css";
 import "@fontsource/great-vibes";
 import "@fontsource/instrument-serif/400-italic.css";
 import "../styles/global.css";
+import GoogleAnalytics from "@astro-kits/google-analytics";
 
 interface Props {
   title: string;
@@ -15,6 +16,8 @@ interface Props {
 const { title } = Astro.props;
 const description =
   "Kenny Montaño Beltre — Product Manager & Design Strategist with 14+ years building products for governments, the UN, and global organizations.";
+
+const gaId = "G-LE23V1GPWZ";
 ---
 
 <!doctype html>
@@ -47,8 +50,8 @@ const description =
 
     <title>{title}</title>
 
-    <!-- MailerLite Universal - Deferred -->
-    <script is:inline defer>
+    <!-- MailerLite Universal  -->
+    <script is:inline>
       (function (w, d, e, u, f, l, n) {
         ((w[f] =
           w[f] ||
@@ -70,6 +73,8 @@ const description =
       ml("account", "2231385");
     </script>
     <!-- End MailerLite Universal -->
+
+    <GoogleAnalytics id={gaId} />
   </head>
   <body class="bg-cream-2 text-charcoal">
     <slot />
