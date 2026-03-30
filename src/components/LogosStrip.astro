@@ -36,7 +36,7 @@ const logos = [
   <div class="w-full overflow-hidden">
     <Marquee speed={40} pauseOnHover={true}>
       {
-        [...logos, ...logos].map((logo) => (
+        logos.map((logo) => (
           <Image
             src={logo.src}
             alt={logo.alt}
