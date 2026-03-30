@@ -3,6 +3,9 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Track resize handlers so we can remove them on cleanup
+let resizeHandlers = [];
+
 // ── Scroll-reveal animations ────────────────────────────────────────
 
 const initAnimations = () => {
@@ -79,7 +82,11 @@ const setupMarquee = () => {
     if (!track) return;
 
     // 1. CLONE THE CONTENT: Duplicate the internal HTML to create the loop
-    track.innerHTML += track.innerHTML;
+    //    Guard against re-duplication on View Transition re-init
+    if (!track.dataset.initialized) {
+      track.innerHTML += track.innerHTML;
+      track.dataset.initialized = "true";
+    }
 
     const speed = Number(container.getAttribute("data-speed"));
     const direction = container.getAttribute("data-direction");
@@ -247,6 +254,7 @@ const setupOrbitalDiagrams = () => {
       });
     }
 
+    resizeHandlers.push(layout);
     window.addEventListener("resize", layout);
     layout();
     initOrbitalAnimations();
@@ -277,6 +285,20 @@ const setupSpecializations = () => {
   });
 };
 
+// ── Cleanup ─────────────────────────────────────────────────────────
+
+const cleanup = () => {
+  // Kill all GSAP ScrollTrigger instances
+  ScrollTrigger.getAll().forEach((t) => t.kill());
+
+  // Kill all active tweens
+  gsap.killTweensOf("*");
+
+  // Remove tracked resize listeners
+  resizeHandlers.forEach((fn) => window.removeEventListener("resize", fn));
+  resizeHandlers = [];
+};
+
 // ── Bootstrap ───────────────────────────────────────────────────────
 
 const initAll = () => {
@@ -296,6 +318,9 @@ export const boot = () => {
     initAll();
   }
 
-  // Re-run after Astro View Transitions navigation
-  document.addEventListener("astro:after-swap", initAll);
+  // Re-run after Astro View Transitions navigation, with cleanup first
+  document.addEventListener("astro:after-swap", () => {
+    cleanup();
+    initAll();
+  });
 };
