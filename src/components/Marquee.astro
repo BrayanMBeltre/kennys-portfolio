@@ -18,7 +18,7 @@ const {
   class="marquee-container overflow-hidden py-4"
   data-speed={speed}
   data-direction={direction}
-  data-pause={pauseOnHover}
+  data-pause={pauseOnHover.toString()}
 >
   <div class:list={["marquee-track flex w-max shrink-0 items-center", gap]}>
     <!-- Slot for the user's content -->
