@@ -23,26 +23,4 @@ const specializations = [
   }
 </ul>
 
-<script>
-  import { gsap } from "gsap";
 
-  const container = document.querySelector("[data-specializations-list]");
-  if (container) {
-    const items = container.querySelectorAll("li");
-    const movement = 20;
-    const duration = 2.15;
-
-    const tl = gsap.timeline({ repeat: -1 });
-
-    items.forEach((_, index) => {
-      tl.to(`#specialization-${index}`, {
-        keyframes: {
-          opacity: [0, 0, 1, 1, 1, 1, 0, 0],
-          y: [movement, movement, 0, 0, 0, 0, -movement, -movement],
-        },
-        duration,
-        delay: -0.5,
-      });
-    });
-  }
-</script>

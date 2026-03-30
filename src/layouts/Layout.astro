@@ -78,11 +78,7 @@ const description =
 </html>
 
 <script>
-  import { initAnimations } from "../lib/animations.js";
+  import { boot } from "../lib/animations.js";
 
-  // Initialize on first load
-  document.addEventListener("DOMContentLoaded", initAnimations);
-
-  // If you use Astro View Transitions, also run on swap:
-  document.addEventListener("astro:after-swap", initAnimations);
+  boot();
 </script>
