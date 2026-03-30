@@ -5,6 +5,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Track resize handlers so we can remove them on cleanup
 let resizeHandlers = [];
+// Track marquee hover listeners so we can remove them on cleanup
+let marqueeListeners = [];
 
 // ── Scroll-reveal animations ────────────────────────────────────────
 
@@ -109,8 +111,11 @@ const setupMarquee = () => {
 
     // 3. OPTIONAL PAUSE
     if (pauseOnHover) {
-      container.addEventListener("mouseenter", () => tween.pause());
-      container.addEventListener("mouseleave", () => tween.play());
+      const onEnter = () => tween.pause();
+      const onLeave = () => tween.play();
+      container.addEventListener("mouseenter", onEnter);
+      container.addEventListener("mouseleave", onLeave);
+      marqueeListeners.push({ el: container, onEnter, onLeave });
     }
   });
 };
@@ -306,6 +311,13 @@ const cleanup = () => {
   // Remove tracked resize listeners
   resizeHandlers.forEach((fn) => window.removeEventListener("resize", fn));
   resizeHandlers = [];
+
+  // Remove tracked marquee hover listeners
+  marqueeListeners.forEach(({ el, onEnter, onLeave }) => {
+    el.removeEventListener("mouseenter", onEnter);
+    el.removeEventListener("mouseleave", onLeave);
+  });
+  marqueeListeners = [];
 };
 
 // ── Bootstrap ───────────────────────────────────────────────────────
