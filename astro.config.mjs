@@ -6,6 +6,8 @@ import og from "astro-og";
 
 import annotate from "astro-annotate";
 
+import partytown from "@astrojs/partytown";
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://kennymbeltre.com",
@@ -19,7 +21,15 @@ export default defineConfig({
       },
     },
   },
-  integrations: [og(), annotate()],
+  integrations: [
+    og(),
+    annotate(),
+    partytown({
+      config: {
+        forward: ["dataLayer.push", "gtag"],
+      },
+    }),
+  ],
   redirects: {
     "/portfolio": {
       status: 302,
