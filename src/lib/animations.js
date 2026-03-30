@@ -47,7 +47,7 @@ const initAnimations = () => {
   const lines = document.querySelectorAll(".animate-line");
 
   lines.forEach((line) => {
-    const text = line.textContent;
+    const text = line.textContent.trim();
     line.innerHTML = text
       .split("")
       .map(
