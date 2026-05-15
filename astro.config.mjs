@@ -36,5 +36,9 @@ export default defineConfig({
       destination:
         "https://www.figma.com/deck/3LVtaaODfk7NuuoMMJxxYI/Kenny-Beltre-s-Portfolio?node-id=1-2495&viewport=-6753%2C-138%2C0.76&t=YpCfOBNok5ukzM4i-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1",
     },
+    "/skills": {
+      status: 302,
+      destination: "https://flask-gush-46635396.figma.site/skills",
+    },
   },
 });
